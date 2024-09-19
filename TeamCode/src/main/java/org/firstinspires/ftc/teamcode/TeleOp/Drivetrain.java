@@ -64,9 +64,9 @@ public class Drivetrain extends LinearOpMode {
         //claw = hwMap.crservo.get("claw");
         //rightWheel = hwMap.crservo.get("rightwheel");
         //leftWheel = hwMap.crservo.get("leftwheel");
-        rightOdo = hwMap.get(DcMotorEx.class, "rightodo");
-        rightOdo.setDirection(DcMotorSimple.Direction.REVERSE);
-        leftOdo = hwMap.get(DcMotorEx.class, "amtop");
+        //rightOdo = hwMap.get(DcMotorEx.class, "rightodo");
+        //rightOdo.setDirection(DcMotorSimple.Direction.REVERSE);
+        //leftOdo = hwMap.get(DcMotorEx.class, "amtop");
         //midOdo = hwMap.get(DcMotorEx.class, "middleodo");
 
 
