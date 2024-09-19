@@ -25,7 +25,7 @@ public class Drivetrain extends LinearOpMode {
     //public CRServo droneLauncher;
     public DcMotorEx rightOdo;
     public DcMotorEx leftOdo;
-    public DcMotorEx midOdo;
+    //public DcMotorEx midOdo;
     public double Kp = 8.5;
     public double Ki = 0;
     public double Kd = 0;
@@ -67,7 +67,7 @@ public class Drivetrain extends LinearOpMode {
         rightOdo = hwMap.get(DcMotorEx.class, "rightodo");
         rightOdo.setDirection(DcMotorSimple.Direction.REVERSE);
         leftOdo = hwMap.get(DcMotorEx.class, "amtop");
-        midOdo = hwMap.get(DcMotorEx.class, "middleodo");
+        //midOdo = hwMap.get(DcMotorEx.class, "middleodo");
 
 
 

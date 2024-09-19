@@ -15,7 +15,7 @@ public class TestDrive extends LinearOpMode {
             //drivetrain.claw.setPower(.5);
             telemetry.addData("rightodo", drivetrain.rightOdo.getCurrentPosition());
             telemetry.addData("leftodo", drivetrain.leftOdo.getCurrentPosition());
-            telemetry.addData("midodo", drivetrain.midOdo.getCurrentPosition());
+            //telemetry.addData("midodo", drivetrain.midOdo.getCurrentPosition());
             telemetry.update();
 
 
