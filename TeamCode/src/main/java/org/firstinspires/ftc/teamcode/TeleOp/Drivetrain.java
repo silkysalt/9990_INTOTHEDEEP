@@ -13,6 +13,9 @@ public class Drivetrain extends LinearOpMode {
     public DcMotor bottomLeftDriveMotor;
     public DcMotor topRightDriveMotor;
     public DcMotor bottomRightDriveMotor;
+    public DcMotor armMotorBottom;
+    public DcMotor armMotorTop;
+    public DcMotor armMotorRotation;
     //all unnecessary code from last year
     //public static CRServo claw;
     //public static CRServo wrist;
@@ -58,8 +61,9 @@ public class Drivetrain extends LinearOpMode {
         //rightScoop = hwMap.crservo.get("rightScoop");
         //droneLauncher = hwMap.crservo.get("droneLauncher");
         //droneLauncher.setDirection(DcMotorSimple.Direction.REVERSE);
-        //armmotorBottom = hwMap.dcMotor.get("ambottom");
-        //armmotorTop = hwMap.dcMotor.get("amtop");
+        armmotorBottom = hwMap.dcMotor.get("ambottom");
+        armmotorTop = hwMap.dcMotor.get("amtop");
+        armmotorRotation = hwMap.dcMotor.get("amrotation");
         //wrist = hwMap.crservo.get("wrist");
         //claw = hwMap.crservo.get("claw");
         //rightWheel = hwMap.crservo.get("rightwheel");
@@ -152,8 +156,8 @@ public class Drivetrain extends LinearOpMode {
 
     }
 
-    /*public void armScoopMovement(Gamepad gamepad1, Gamepad gamepad2) throws InterruptedException {
-        if (gamepad2.back) {
+    public void armScoopMovement(Gamepad gamepad1, Gamepad gamepad2) throws InterruptedException {
+        /*if (gamepad2.back) {
             droneLauncher.setPower(.5);
             sleep(500);
             sleep(500);
@@ -202,7 +206,7 @@ public class Drivetrain extends LinearOpMode {
             }
 
 
-
+*/
         //move arm back
         if (gamepad2.left_trigger > 0) {
             armmotorTop.setPower(-.3 * gamepad2.left_trigger);
@@ -221,11 +225,12 @@ public class Drivetrain extends LinearOpMode {
 
         if (gamepad2.left_bumper || gamepad2.dpad_up) {
             //back
-            wrist.setPower(1);
-        }
-        if (gamepad2.right_bumper || gamepad2.dpad_down) {
+            armMotorRotation.setPower(1);
+        } else if (gamepad2.right_bumper || gamepad2.dpad_down) {
             //front
-            wrist.setPower(-1);
+            armMotorRotation.setPower(-1);
+        } else {
+            armMotorRotation.setPower(0);
         }
         if (gamepad1.back) {
             double hang = 1.5;
@@ -236,7 +241,7 @@ public class Drivetrain extends LinearOpMode {
 
 
             }
-        }*/
+        }
 
 
 
