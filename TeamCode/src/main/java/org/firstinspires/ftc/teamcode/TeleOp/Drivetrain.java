@@ -5,6 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 
@@ -13,9 +14,9 @@ public class Drivetrain extends LinearOpMode {
     public DcMotor bottomLeftDriveMotor;
     public DcMotor topRightDriveMotor;
     public DcMotor bottomRightDriveMotor;
-    public DcMotor armMotorBottom;
-    public DcMotor armMotorTop;
-    public DcMotor armMotorRotation;
+    public DcMotor armmotorBottom;
+    public DcMotor armmotorTop;
+    public DcMotor armmotorRotation;
     //all unnecessary code from last year
     //public static CRServo claw;
     //public static CRServo wrist;
@@ -225,19 +226,19 @@ public class Drivetrain extends LinearOpMode {
 
         if (gamepad2.left_bumper || gamepad2.dpad_up) {
             //back
-            armMotorRotation.setPower(1);
+            armmotorRotation.setPower(.1);
         } else if (gamepad2.right_bumper || gamepad2.dpad_down) {
             //front
-            armMotorRotation.setPower(-1);
+            armmotorRotation.setPower(-.1);
         } else {
-            armMotorRotation.setPower(0);
+            armmotorRotation.setPower(0);
         }
-        if (gamepad1.back) {
+        /*if (gamepad1.back) {
             double hang = 1.5;
             armmotorTop.setPower(hang);
             armmotorBottom.setPower(hang);
             sleep(10000000);
-
+*/
 
 
             }
