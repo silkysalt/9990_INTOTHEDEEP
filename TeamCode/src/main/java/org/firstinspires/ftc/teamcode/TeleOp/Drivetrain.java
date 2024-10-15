@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.TeleOp;
 
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
@@ -18,7 +19,7 @@ public class Drivetrain extends LinearOpMode {
     public DcMotor armmotorTop;
     public DcMotor armmotorRotation;
     //all unnecessary code from last year
-    //public static CRServo claw;
+    public static CRServo claw;
     //public static CRServo wrist;
     //public DcMotor armmotorTop;
     //public DcMotor armmotorBottom;
@@ -211,19 +212,21 @@ public class Drivetrain extends LinearOpMode {
         //move arm back
         if (gamepad2.left_trigger > 0) {
             armmotorTop.setPower(-.3 * gamepad2.left_trigger);
-            armmotorBottom.setPower(-.6 * gamepad2.left_trigger);
+            armmotorBottom.setPower(-.3 * gamepad2.left_trigger);
+            armmotorRotation.setPower(-.6 * gamepad2.right_trigger);
 
         } else if (gamepad2.right_trigger > 0) {
             armmotorTop.setPower(.3 * gamepad2.right_trigger);
             //forward
-            armmotorBottom.setPower(.6 * gamepad2.right_trigger);
+            armmotorBottom.setPower(.3 * gamepad2.right_trigger);
+            armmotorRotation.setPower(.6 * gamepad2.right_trigger);
 
 
         } else {
             armmotorTop.setPower(0);
             armmotorBottom.setPower(0);
         }
-
+        /*
         if (gamepad2.left_bumper || gamepad2.dpad_up) {
             //back
             armmotorRotation.setPower(.1);
@@ -233,15 +236,25 @@ public class Drivetrain extends LinearOpMode {
         } else {
             armmotorRotation.setPower(0);
         }
+*/
+        if (gamepad2.a) {
+            claw.setPower(1);
+        }
+
+        if (gamepad2.b) {
+            claw.setPower(0);
+        }
         /*if (gamepad1.back) {
             double hang = 1.5;
             armmotorTop.setPower(hang);
             armmotorBottom.setPower(hang);
             sleep(10000000);
+            }
 */
 
 
-            }
+
+
         }
 
 
