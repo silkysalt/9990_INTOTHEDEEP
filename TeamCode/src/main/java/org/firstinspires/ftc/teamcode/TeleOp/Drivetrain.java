@@ -5,7 +5,6 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
@@ -17,7 +16,8 @@ public class Drivetrain extends LinearOpMode {
     public DcMotor bottomRightDriveMotor;
     public DcMotor armmotorBottom;
     public DcMotor armmotorTop;
-    public DcMotor armmotorRotation;
+    public DcMotor armmotorThird;
+    public DcMotor armslider;
     //all unnecessary code from last year
     public static CRServo claw;
     //public static CRServo wrist;
@@ -66,6 +66,11 @@ public class Drivetrain extends LinearOpMode {
         armmotorBottom = hwMap.dcMotor.get("ambottom");
         armmotorTop = hwMap.dcMotor.get("amtop");
         armmotorRotation = hwMap.dcMotor.get("amrotation");
+        /* NEW ARM MOTORS
+                         |
+                         v                 */
+        armmotorThird = hwMap.dcMotor.get("amthird");
+        armslider = hwMap.dcMotor.get("amslider");
         //wrist = hwMap.crservo.get("wrist");
         //claw = hwMap.crservo.get("claw");
         //rightWheel = hwMap.crservo.get("rightwheel");
@@ -213,30 +218,30 @@ public class Drivetrain extends LinearOpMode {
         if (gamepad2.left_trigger > 0) {
             armmotorTop.setPower(-.3 * gamepad2.left_trigger);
             armmotorBottom.setPower(-.3 * gamepad2.left_trigger);
-            armmotorRotation.setPower(-.6 * gamepad2.right_trigger);
+            armmotorThird.setPower(-.6 * gamepad2.right_trigger);
 
         } else if (gamepad2.right_trigger > 0) {
             armmotorTop.setPower(.3 * gamepad2.right_trigger);
             //forward
             armmotorBottom.setPower(.3 * gamepad2.right_trigger);
-            armmotorRotation.setPower(.6 * gamepad2.right_trigger);
+            armmotorThird.setPower(.6 * gamepad2.right_trigger);
 
 
         } else {
             armmotorTop.setPower(0);
             armmotorBottom.setPower(0);
         }
-        /*
-        if (gamepad2.left_bumper || gamepad2.dpad_up) {
+
+        if (gamepad2.left_bumper) {
             //back
-            armmotorRotation.setPower(.1);
-        } else if (gamepad2.right_bumper || gamepad2.dpad_down) {
+            armslider.setPower(.1);
+        } else if (gamepad2.right_bumper) {
             //front
-            armmotorRotation.setPower(-.1);
+            armslider.setPower(-.1);
         } else {
-            armmotorRotation.setPower(0);
+            armslider.setPower(0);
         }
-*/
+        //claw functions: PLEASE TEST BEFORE MODIFYING
         if (gamepad2.a) {
             claw.setPower(1);
         }
