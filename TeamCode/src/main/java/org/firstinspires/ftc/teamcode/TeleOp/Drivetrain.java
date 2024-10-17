@@ -65,7 +65,7 @@ public class Drivetrain extends LinearOpMode {
         //droneLauncher.setDirection(DcMotorSimple.Direction.REVERSE);
         armmotorBottom = hwMap.dcMotor.get("ambottom");
         armmotorTop = hwMap.dcMotor.get("amtop");
-        armmotorRotation = hwMap.dcMotor.get("amrotation");
+        armslider = hwMap.dcMotor.get("amrotation");
         /* NEW ARM MOTORS
                          |
                          v                 */
@@ -217,19 +217,20 @@ public class Drivetrain extends LinearOpMode {
         //move arm back
         if (gamepad2.left_trigger > 0) {
             armmotorTop.setPower(-.1 * gamepad2.left_trigger);
-            armmotorBottom.setPower(-.1 * gamepad2.left_trigger);
-            armmotorThird.setPower(-.1 * gamepad2.right_trigger);
+            //armmotorBottom.setPower(-.1 * gamepad2.left_trigger);
+            //armmotorThird.setPower(-.1 * gamepad2.right_trigger);
 
         } else if (gamepad2.right_trigger > 0) {
             armmotorTop.setPower(.1 * gamepad2.right_trigger);
             //forward
-            armmotorBottom.setPower(.1 * gamepad2.right_trigger);
-            armmotorThird.setPower(.1 * gamepad2.right_trigger);
+            //armmotorBottom.setPower(.1 * gamepad2.right_trigger);
+            //armmotorThird.setPower(.1 * gamepad2.right_trigger);
 
 
         } else {
             armmotorTop.setPower(0);
             armmotorBottom.setPower(0);
+            armmotorThird.setPower(0);
         }
 
         if (gamepad2.left_bumper) {
@@ -241,18 +242,18 @@ public class Drivetrain extends LinearOpMode {
         } else {
             armslider.setPower(0);
         }
-        //claw functions: PLEASE TEST BEFORE MODIFYING
+
+        /*claw functions: PLEASE TEST BEFORE MODIFYING
+                |
+                v        */
         if (gamepad2.a) {
-            claw.setPower(1);
-        } else if (gamepad2.b) {
-            claw.setPower(-1);
-        } else {
-            claw.setPower(0);
+            claw.setPower(.6);
+        }
+        if (gamepad2.b) {
+            claw.setPower(-.6);
         }
 
-        if (gamepad2.b) {
-            claw.setPower(0);
-        }
+
         /*if (gamepad1.back) {
             double hang = 1.5;
             armmotorTop.setPower(hang);
