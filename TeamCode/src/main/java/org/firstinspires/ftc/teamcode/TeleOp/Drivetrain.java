@@ -65,7 +65,6 @@ public class Drivetrain extends LinearOpMode {
         //droneLauncher.setDirection(DcMotorSimple.Direction.REVERSE);
         armmotorBottom = hwMap.dcMotor.get("ambottom");
         armmotorTop = hwMap.dcMotor.get("amtop");
-        armslider = hwMap.dcMotor.get("amrotation");
         /* NEW ARM MOTORS
                          |
                          v                 */
