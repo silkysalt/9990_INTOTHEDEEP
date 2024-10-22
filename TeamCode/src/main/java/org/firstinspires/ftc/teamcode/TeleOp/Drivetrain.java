@@ -215,15 +215,15 @@ public class Drivetrain extends LinearOpMode {
 */
         //move arm back
         if (gamepad2.left_trigger > 0) {
-            armmotorTop.setPower(-.1 * gamepad2.left_trigger);
-            //armmotorBottom.setPower(-.1 * gamepad2.left_trigger);
-            //armmotorThird.setPower(-.1 * gamepad2.right_trigger);
+            armmotorTop.setPower(-.5 * gamepad2.left_trigger);
+            armmotorBottom.setPower(-.5 * gamepad2.left_trigger);
+            armmotorThird.setPower(-.5 * gamepad2.left_trigger);
 
         } else if (gamepad2.right_trigger > 0) {
-            armmotorTop.setPower(.1 * gamepad2.right_trigger);
+            armmotorTop.setPower(.5 * gamepad2.right_trigger);
             //forward
-            //armmotorBottom.setPower(.1 * gamepad2.right_trigger);
-            //armmotorThird.setPower(.1 * gamepad2.right_trigger);
+            armmotorBottom.setPower(.5 * gamepad2.right_trigger);
+            armmotorThird.setPower(.5 * gamepad2.right_trigger);
 
 
         } else {
@@ -246,10 +246,10 @@ public class Drivetrain extends LinearOpMode {
                 |
                 v        */
         if (gamepad2.a) {
-            claw.setPower(.6);
+            //claw.setPower(.6);
         }
         if (gamepad2.b) {
-            claw.setPower(-.6);
+            //claw.setPower(-.6);
         }
 
 
