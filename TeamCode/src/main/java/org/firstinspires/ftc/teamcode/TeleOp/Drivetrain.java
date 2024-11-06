@@ -5,6 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
@@ -19,7 +20,7 @@ public class Drivetrain extends LinearOpMode {
     public DcMotor armmotorThird;
     public DcMotor armslider;
     //all unnecessary code from last year
-    public static CRServo claw;
+    public static CRServo claw1;
     //public static CRServo wrist;
     //public DcMotor armmotorTop;
     //public DcMotor armmotorBottom;
@@ -71,7 +72,7 @@ public class Drivetrain extends LinearOpMode {
         armmotorThird = hwMap.dcMotor.get("amthird");
         armslider = hwMap.dcMotor.get("amslider");
         //wrist = hwMap.crservo.get("wrist");
-        //claw = hwMap.crservo.get("claw");
+        claw1 = hwMap.crservo.get("claw");
         //rightWheel = hwMap.crservo.get("rightwheel");
         //leftWheel = hwMap.crservo.get("leftwheel");
         //rightOdo = hwMap.get(DcMotorEx.class, "rightodo");
@@ -92,12 +93,11 @@ public class Drivetrain extends LinearOpMode {
         /**
          *Since we are putting the motors on different sides we need to reverse direction so that one wheel doesn't pull us backwards
          * **/
-
         //THIS IS THE CORRECT ORIENTATION
+        topLeftDriveMotor.setDirection(DcMotor.Direction.REVERSE);
         topRightDriveMotor.setDirection(DcMotor.Direction.REVERSE);
         bottomRightDriveMotor.setDirection(DcMotor.Direction.REVERSE);
-        topLeftDriveMotor.setDirection(DcMotor.Direction.REVERSE);
-
+        
         /**
          * Reverses shooter motor to shoot the correct way and same with the conveyor motor
          * **/
@@ -105,10 +105,12 @@ public class Drivetrain extends LinearOpMode {
         /**
          * We are setting the motor 0 mode power to be brake as it actively stops the robot and doesn't rely on the surface to slow down once the robot power is set to 0
          * **/
+        /**
         topLeftDriveMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         bottomLeftDriveMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         topRightDriveMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         bottomRightDriveMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+         **/
 
 
         /**
@@ -163,6 +165,7 @@ public class Drivetrain extends LinearOpMode {
     }
 
     public void armScoopMovement(Gamepad gamepad1, Gamepad gamepad2) throws InterruptedException {
+        int armpowertoggle=0;
         /*if (gamepad2.back) {
             droneLauncher.setPower(.5);
             sleep(500);
@@ -214,16 +217,17 @@ public class Drivetrain extends LinearOpMode {
 
 */
         //move arm back
+
         if (gamepad2.left_trigger > 0) {
-            armmotorTop.setPower(-.5 * gamepad2.left_trigger);
-            armmotorBottom.setPower(-.5 * gamepad2.left_trigger);
-            armmotorThird.setPower(-.5 * gamepad2.left_trigger);
+            armmotorTop.setPower(.1 * gamepad2.left_trigger);
+            armmotorBottom.setPower(.1 * gamepad2.left_trigger);
+            armmotorThird.setPower(.1 * gamepad2.left_trigger);
 
         } else if (gamepad2.right_trigger > 0) {
-            armmotorTop.setPower(.5 * gamepad2.right_trigger);
+            armmotorTop.setPower(-.2 * gamepad2.right_trigger);
             //forward
-            armmotorBottom.setPower(.5 * gamepad2.right_trigger);
-            armmotorThird.setPower(.5 * gamepad2.right_trigger);
+            armmotorBottom.setPower(-.2 * gamepad2.right_trigger);
+            armmotorThird.setPower(-.2 * gamepad2.right_trigger);
 
 
         } else {
@@ -234,10 +238,10 @@ public class Drivetrain extends LinearOpMode {
 
         if (gamepad2.left_bumper) {
             //back
-            armslider.setPower(.1);
+            armslider.setPower(-.5);
         } else if (gamepad2.right_bumper) {
             //front
-            armslider.setPower(-.1);
+            armslider.setPower(.5);
         } else {
             armslider.setPower(0);
         }
@@ -246,10 +250,10 @@ public class Drivetrain extends LinearOpMode {
                 |
                 v        */
         if (gamepad2.a) {
-            //claw.setPower(.6);
+            claw1.setPower(.6);
         }
         if (gamepad2.b) {
-            //claw.setPower(-.6);
+            claw1.setPower(-.6);
         }
 
 
