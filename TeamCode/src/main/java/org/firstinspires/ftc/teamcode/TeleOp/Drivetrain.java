@@ -229,7 +229,7 @@ public class Drivetrain extends LinearOpMode {
 
         } else {
             armmotorLeft.setPower(0);
-            //armmotorRight.setPower(0);
+            armmotorRight.setPower(0);
         }
 
         if (gamepad2.left_bumper) {
