@@ -218,13 +218,13 @@ public class Drivetrain extends LinearOpMode {
         //move arm back
 
         if (gamepad2.left_trigger > 0) {
-            armmotorLeft.setPower(.1 * gamepad2.left_trigger);
-            //armmotorRight.setPower(.1 * gamepad2.left_trigger);
+            armmotorLeft.setPower(1 * gamepad2.left_trigger);
+            armmotorRight.setPower(1 * gamepad2.left_trigger);
 
         } else if (gamepad2.right_trigger > 0) {
-            armmotorLeft.setPower(-.2 * gamepad2.right_trigger);
+            armmotorLeft.setPower(-1 * gamepad2.right_trigger);
             //forward
-            //armmotorRight.setPower(-.2 * gamepad2.right_trigger);
+            armmotorRight.setPower(-1 * gamepad2.right_trigger);
 
 
         } else {
