@@ -15,9 +15,8 @@ public class Drivetrain extends LinearOpMode {
     public DcMotor bottomLeftDriveMotor;
     public DcMotor topRightDriveMotor;
     public DcMotor bottomRightDriveMotor;
-    public DcMotor armmotorBottom;
-    public DcMotor armmotorTop;
-    public DcMotor armmotorThird;
+    public DcMotor armmotorLeft;
+    public DcMotor armmotorRight;
     public DcMotor armslider;
     //all unnecessary code from last year
     public static CRServo claw1;
@@ -64,12 +63,12 @@ public class Drivetrain extends LinearOpMode {
         //rightScoop = hwMap.crservo.get("rightScoop");
         //droneLauncher = hwMap.crservo.get("droneLauncher");
         //droneLauncher.setDirection(DcMotorSimple.Direction.REVERSE);
-        armmotorBottom = hwMap.dcMotor.get("ambottom");
-        armmotorTop = hwMap.dcMotor.get("amtop");
+        armmotorLeft = hwMap.dcMotor.get("amleft");
+        armmotorRight = hwMap.dcMotor.get("amright");
         /* NEW ARM MOTORS
                          |
                          v                 */
-        armmotorThird = hwMap.dcMotor.get("amthird");
+
         armslider = hwMap.dcMotor.get("amslider");
         //wrist = hwMap.crservo.get("wrist");
         claw1 = hwMap.crservo.get("claw");
@@ -219,21 +218,18 @@ public class Drivetrain extends LinearOpMode {
         //move arm back
 
         if (gamepad2.left_trigger > 0) {
-            armmotorTop.setPower(.1 * gamepad2.left_trigger);
-            armmotorBottom.setPower(.1 * gamepad2.left_trigger);
-            armmotorThird.setPower(.1 * gamepad2.left_trigger);
+            armmotorLeft.setPower(.1 * gamepad2.left_trigger);
+            //armmotorRight.setPower(.1 * gamepad2.left_trigger);
 
         } else if (gamepad2.right_trigger > 0) {
-            armmotorTop.setPower(-.2 * gamepad2.right_trigger);
+            armmotorLeft.setPower(-.2 * gamepad2.right_trigger);
             //forward
-            armmotorBottom.setPower(-.2 * gamepad2.right_trigger);
-            armmotorThird.setPower(-.2 * gamepad2.right_trigger);
+            //armmotorRight.setPower(-.2 * gamepad2.right_trigger);
 
 
         } else {
-            armmotorTop.setPower(0);
-            armmotorBottom.setPower(0);
-            armmotorThird.setPower(0);
+            armmotorLeft.setPower(0);
+            //armmotorRight.setPower(0);
         }
 
         if (gamepad2.left_bumper) {
