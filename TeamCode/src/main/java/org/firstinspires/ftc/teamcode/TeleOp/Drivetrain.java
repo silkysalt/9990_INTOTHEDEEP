@@ -15,7 +15,7 @@ public class Drivetrain extends LinearOpMode {
     public DcMotor bottomLeftDriveMotor;
     public DcMotor topRightDriveMotor;
     public DcMotor bottomRightDriveMotor;
-    public DcMotor armmotorLeft;
+    public static DcMotor armmotorLeft;
     public DcMotor armmotorRight;
     public DcMotor armslider;
     //all unnecessary code from last year
@@ -34,7 +34,6 @@ public class Drivetrain extends LinearOpMode {
     public double Kp = 8.5;
     public double Ki = 0;
     public double Kd = 0;
-
 
     HardwareMap hwMap;
 
@@ -225,15 +224,14 @@ public class Drivetrain extends LinearOpMode {
 
 */
         //move arm back
-
         if (gamepad2.right_trigger > 0) {
-            armmotorLeft.setPower(.25 * gamepad2.left_trigger);
-            armmotorRight.setPower(.25 * gamepad2.left_trigger);
+            armmotorLeft.setPower(.25 * gamepad2.right_trigger);
+            armmotorRight.setPower(.25 * gamepad2.right_trigger);
 
         } else if (gamepad2.left_trigger > 0) {
-            armmotorLeft.setPower(-.25 * gamepad2.right_trigger);
+            armmotorLeft.setPower(-.25 * gamepad2.left_trigger);
             //forward
-            armmotorRight.setPower(-.25 * gamepad2.right_trigger);
+            armmotorRight.setPower(-.25 * gamepad2.left_trigger);
 
 
         } else {
@@ -254,10 +252,10 @@ public class Drivetrain extends LinearOpMode {
         /*claw functions: PLEASE TEST BEFORE MODIFYING
                 |
                 v        */
-        if (gamepad2.a) {
+        if (gamepad2.b) {
             claw1.setPower(.6);
         }
-        if (gamepad2.b) {
+        if (gamepad2.a) {
             claw1.setPower(-.6);
         }
 
