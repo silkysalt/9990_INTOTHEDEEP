@@ -112,6 +112,15 @@ public class Drivetrain extends LinearOpMode {
          **/
 
 
+        /** 2024 CODE
+         set the arm motors to brake
+         */
+        armmotorLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        armmotorRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
+
+
+
         /**
          *The 4 mecanum wheel motors, intake, conveyor, and shooter motor/servo are set to 0 power to keep it from moving when the user presses the INIT button
          * **/
@@ -217,14 +226,14 @@ public class Drivetrain extends LinearOpMode {
 */
         //move arm back
 
-        if (gamepad2.left_trigger > 0) {
-            armmotorLeft.setPower(1 * gamepad2.left_trigger);
-            armmotorRight.setPower(1 * gamepad2.left_trigger);
+        if (gamepad2.right_trigger > 0) {
+            armmotorLeft.setPower(.25 * gamepad2.left_trigger);
+            armmotorRight.setPower(.25 * gamepad2.left_trigger);
 
-        } else if (gamepad2.right_trigger > 0) {
-            armmotorLeft.setPower(-1 * gamepad2.right_trigger);
+        } else if (gamepad2.left_trigger > 0) {
+            armmotorLeft.setPower(-.25 * gamepad2.right_trigger);
             //forward
-            armmotorRight.setPower(-1 * gamepad2.right_trigger);
+            armmotorRight.setPower(-.25 * gamepad2.right_trigger);
 
 
         } else {
@@ -234,10 +243,10 @@ public class Drivetrain extends LinearOpMode {
 
         if (gamepad2.left_bumper) {
             //back
-            armslider.setPower(-.5);
+            armslider.setPower(.5);
         } else if (gamepad2.right_bumper) {
             //front
-            armslider.setPower(.5);
+            armslider.setPower(-.5);
         } else {
             armslider.setPower(0);
         }
