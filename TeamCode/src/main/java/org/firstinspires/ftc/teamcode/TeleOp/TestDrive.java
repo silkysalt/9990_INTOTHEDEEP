@@ -17,6 +17,7 @@ public class TestDrive extends LinearOpMode {
             //telemetry.addData("leftodo", drivetrain.leftOdo.getCurrentPosition());
             //telemetry.addData("midodo", drivetrain.midOdo.getCurrentPosition());
             telemetry.addData("arm motor pos", Drivetrain.armmotorLeft.getCurrentPosition());
+            telemetry.addData("armslider pos", Drivetrain.armslider.getCurrentPosition());
             telemetry.update();
 
 
@@ -29,11 +30,11 @@ public class TestDrive extends LinearOpMode {
 
             if (gamepad1.left_trigger > 0){
                 drivetrain.moveRobot(.3* lsy, .3*  lsx, .3*  rsx);
-                drivetrain.armScoopMovement(gamepad1, gamepad2);
+                drivetrain.armMovement(gamepad1, gamepad2);
             }
             else{
                 drivetrain.moveRobot(lsy, lsx, rsx);
-                drivetrain.armScoopMovement(gamepad1, gamepad2);
+                drivetrain.armMovement(gamepad1, gamepad2);
             }
         }
     }

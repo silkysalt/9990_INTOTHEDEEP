@@ -17,7 +17,7 @@ public class Drivetrain extends LinearOpMode {
     public DcMotor bottomRightDriveMotor;
     public static DcMotor armmotorLeft;
     public DcMotor armmotorRight;
-    public DcMotor armslider;
+    public static DcMotor armslider;
     //all unnecessary code from last year
     public static CRServo claw1;
     //public static CRServo wrist;
@@ -58,10 +58,6 @@ public class Drivetrain extends LinearOpMode {
         bottomLeftDriveMotor = hwMap.get(DcMotor.class, "backleft");
         topRightDriveMotor = hwMap.get(DcMotor.class, "frontright");
         bottomRightDriveMotor = hwMap.get(DcMotor.class, "backright");
-        //leftScoop = hwMap.crservo.get("leftScoop");
-        //rightScoop = hwMap.crservo.get("rightScoop");
-        //droneLauncher = hwMap.crservo.get("droneLauncher");
-        //droneLauncher.setDirection(DcMotorSimple.Direction.REVERSE);
         armmotorLeft = hwMap.dcMotor.get("amleft");
         armmotorRight = hwMap.dcMotor.get("amright");
         /* NEW ARM MOTORS
@@ -116,6 +112,7 @@ public class Drivetrain extends LinearOpMode {
          */
         armmotorLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         armmotorRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        armslider.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
 
 
@@ -171,67 +168,17 @@ public class Drivetrain extends LinearOpMode {
 
     }
 
-    public void armScoopMovement(Gamepad gamepad1, Gamepad gamepad2) throws InterruptedException {
-        int armpowertoggle=0;
-        /*if (gamepad2.back) {
-            droneLauncher.setPower(.5);
-            sleep(500);
-            sleep(500);
-            droneLauncher.setPower(-.5);
-            sleep(500);
-            droneLauncher.setPower(0);
-        } else {
-            droneLauncher.setPower(0);
-        }
-        //KEEP LEFT SCOOP POSITIVE AND RIGHT NEGATIVE
-        //**DO NOT CHANGE
-        if (gamepad1.a) {
-            //scoop down
-            leftScoop.setPower(.8);
-            rightScoop.setPower(-.8);
-        }
-        //KEEP RIGHT SCOOP POSITIVE AND LEFT NEGATIVE
-        //**DO NOT CHANGE
-        if (gamepad1.y) {
-            //scoop up
-            //ElapsedTime runtime = new ElapsedTime();
-            leftScoop.setPower(-.8);
-            rightScoop.setPower(.8);
-            leftWheel.setPower(-1);
-            rightWheel.setPower(1);
-        }
-        if (gamepad2.b) {
-            //grab open
-            claw.setPower(.6);
-        }
-        if (gamepad2.x) {
-            claw.setPower(-.6);
-            //close
-        }
-        if (gamepad1.b){
-                //spins backwards
-                 leftWheel.setPower(-1);
-                rightWheel.setPower(1);
-
-            }
-        else if (gamepad1.x){
-                //end
-             leftWheel.setPower(0);
-                rightWheel.setPower(0);
-
-            }
+    public void armMovement(Gamepad gamepad1, Gamepad gamepad2) throws InterruptedException {
 
 
-*/
-        //move arm back
+        //!!!!MOVEMENT FOR ARM!!!!
         if (gamepad2.right_trigger > 0) {
-            armmotorLeft.setPower(.25 * gamepad2.right_trigger);
-            armmotorRight.setPower(.25 * gamepad2.right_trigger);
-
+            armmotorLeft.setPower(.35 * gamepad2.right_trigger);
+            armmotorRight.setPower(.35 * gamepad2.right_trigger);
         } else if (gamepad2.left_trigger > 0) {
-            armmotorLeft.setPower(-.25 * gamepad2.left_trigger);
+            armmotorLeft.setPower(-.10 * gamepad2.left_trigger);
             //forward
-            armmotorRight.setPower(-.25 * gamepad2.left_trigger);
+            armmotorRight.setPower(-.10 * gamepad2.left_trigger);
 
 
         } else {
@@ -241,10 +188,10 @@ public class Drivetrain extends LinearOpMode {
 
         if (gamepad2.left_bumper) {
             //back
-            armslider.setPower(.5);
+            armslider.setPower(1);
         } else if (gamepad2.right_bumper) {
             //front
-            armslider.setPower(-.5);
+            armslider.setPower(-1);
         } else {
             armslider.setPower(0);
         }
@@ -271,11 +218,11 @@ public class Drivetrain extends LinearOpMode {
 
 
 
-        }
-
-
-
     }
+
+
+
+}
 
 
 
