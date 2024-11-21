@@ -30,7 +30,7 @@ public class Drivetrain extends LinearOpMode {
     //public CRServo droneLauncher;
     public DcMotorEx rightOdo;
     public DcMotorEx leftOdo;
-    //public DcMotorEx midOdo;
+    public DcMotorEx midOdo;
     public double Kp = 8.5;
     public double Ki = 0;
     public double Kd = 0;
@@ -114,6 +114,11 @@ public class Drivetrain extends LinearOpMode {
         armmotorRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         armslider.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
+        /*
+        NEEDED TO NOT BREAK THE DARN ROBOT!!!
+         */
+        armslider.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        armslider.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
 
 
@@ -186,12 +191,13 @@ public class Drivetrain extends LinearOpMode {
             armmotorRight.setPower(0);
         }
 
-        if (gamepad2.left_bumper) {
+        if (gamepad2.right_bumper) {
             //back
             armslider.setPower(1);
-        } else if (gamepad2.right_bumper) {
-            //front
-            armslider.setPower(-1);
+        } else if (gamepad2.left_bumper) {
+            if (armslider.getCurrentPosition()>0) {
+                armslider.setPower(-1);
+            }
         } else {
             armslider.setPower(0);
         }
