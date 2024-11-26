@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.teamcode.TeleOp;
 
+import static org.firstinspires.ftc.teamcode.TeleOp.Drivetrain.armslider;
+
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
@@ -16,6 +18,7 @@ public class TestDrive extends LinearOpMode {
             //telemetry.addData("rightodo", drivetrain.rightOdo.getCurrentPosition());
             //telemetry.addData("leftodo", drivetrain.leftOdo.getCurrentPosition());
             //telemetry.addData("midodo", drivetrain.midOdo.getCurrentPosition());
+            telemetry.addData("armsliderpos", armslider.getCurrentPosition());
             telemetry.update();
 
 
@@ -27,7 +30,7 @@ public class TestDrive extends LinearOpMode {
             double rsx = gamepad1.right_stick_x;
 
             if (gamepad1.left_trigger > 0){
-                drivetrain.moveRobot(.3* lsy, .3*  lsx, .3*  rsx);
+                drivetrain.moveRobot(.4* lsy, .4*  lsx, .4*  rsx);
                 drivetrain.armMovement(gamepad1, gamepad2);
             }
             else{
