@@ -145,9 +145,9 @@ public class Drivetrain extends LinearOpMode {
         /**
          * Wheel powers calculated using gamepad 1's inputs leftStickY, leftStickX, and rightStickX
          * **/
-        double y = -leftStickY * .65; // Remember, Y stick value is reversed
-        double x = leftStickX * 1.1 * .65; // Counteract imperfect strafing
-        double rx = rightStickX * .65;
+        double y = -leftStickY * 1; // Remember, Y stick value is reversed
+        double x = leftStickX * 1.1 * 1; // Counteract imperfect strafing
+        double rx = rightStickX * 0.5;
         double denominator = Math.max(Math.abs(y) + Math.abs(x) + Math.abs(rx), 1);
         double frontLeftPower = (y + x + rx) / denominator;
         double backLeftPower = (y - x + rx) / denominator;
@@ -180,13 +180,26 @@ public class Drivetrain extends LinearOpMode {
 
         //!!!!MOVEMENT FOR ARM!!!!
         if (gamepad2.right_trigger > 0) { // move arm forward
-            armmotorLeft.setPower(.25 * gamepad2.right_trigger);
-            armmotorRight.setPower(.25 * gamepad2.right_trigger);
-            armmotorThird.setPower(.25 * gamepad2.right_trigger);
+            if (gamepad2.x) {
+                armmotorLeft.setPower(.8 * gamepad2.right_trigger);
+                armmotorRight.setPower(.8 * gamepad2.right_trigger);
+                armmotorThird.setPower(.8 * gamepad2.right_trigger);
+            } else {
+                armmotorLeft.setPower(.4 * gamepad2.right_trigger);
+                armmotorRight.setPower(.4 * gamepad2.right_trigger);
+                armmotorThird.setPower(.4 * gamepad2.right_trigger);
+            }
+
         } else if (gamepad2.left_trigger > 0) { // move arm backward
-            armmotorLeft.setPower(-.25 * gamepad2.left_trigger);
-            armmotorRight.setPower(-.25 * gamepad2.left_trigger);
-            armmotorThird.setPower(-.25 * gamepad2.left_trigger);
+            if (gamepad2.x) {
+                armmotorLeft.setPower(-.8 * gamepad2.left_trigger);
+                armmotorRight.setPower(-.8 * gamepad2.left_trigger);
+                armmotorThird.setPower(-.8 * gamepad2.left_trigger);
+            }   else {
+                armmotorLeft.setPower(-.4 * gamepad2.left_trigger);
+                armmotorRight.setPower(-.4 * gamepad2.left_trigger);
+                armmotorThird.setPower(-.4 * gamepad2.left_trigger);
+            }
 
         } else {
             armmotorLeft.setPower(0);
