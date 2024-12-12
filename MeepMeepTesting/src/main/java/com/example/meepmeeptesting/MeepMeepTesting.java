@@ -29,7 +29,7 @@ public class MeepMeepTesting {
                         .splineTo(new Vector2d(-57, 5), Math.toRadians(-90))
                         .strafeRight(3.25)
                         .back(55)
-                        .waitSeconds(3)
+                        .waitSeconds(3) //take out of time
 
                         .build());
 
