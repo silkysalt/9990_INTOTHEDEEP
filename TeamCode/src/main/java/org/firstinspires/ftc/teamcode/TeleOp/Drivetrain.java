@@ -112,6 +112,7 @@ public class Drivetrain extends LinearOpMode {
     public void moveRobot(double leftStickY, double leftStickX, double rightStickX) { // INCREASED POWER FROM LAST YEAR!!! MORE POWER = MORE GOOD...?
         /**
          * Wheel powers calculated using gamepad 1's inputs leftStickY, leftStickX, and rightStickX
+         * hfhghjksfdhjksdfjhlsfdhjlfdshjadfhjashsaj AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA FRIIICK  we reused this shit and it intentionally has shitty strafing because fuck mecanum wheels
          * **/
         double y = -leftStickY * 1; // Remember, Y stick value is reversed
         double x = leftStickX * 1.1 * 1; // Counteract imperfect strafing
@@ -131,6 +132,7 @@ public class Drivetrain extends LinearOpMode {
 
 
         //!!!!MOVEMENT FOR ARM!!!!
+        // i had to code thids and figure out what way the motors were going because if it fucks up it breaks the whole thing and i would be angry and annoyed and stupid if it did stupid stuff ugh
         if (gamepad2.right_trigger > 0) { // move arm forward
             if (gamepad2.x) {
                 armmotorLeft.setPower(.8 * gamepad2.right_trigger);
