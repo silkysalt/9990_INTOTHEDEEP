@@ -21,15 +21,7 @@ public class Drivetrain extends LinearOpMode {
     public DcMotor armmotorThird;
     public static DcMotor armslider;
     //all unnecessary code from last year
-    public static Servo claw1;
-    //public static CRServo wrist;
-    //public DcMotor armmotorTop;
-    //public DcMotor armmotorBottom;
-    //public CRServo leftScoop;
-    //public CRServo rightScoop;
-    //public CRServo rightWheel;
-    //public CRServo leftWheel;
-    //public CRServo droneLauncher;
+    public static Servo claw1; // GOD DAMN IT
     public DcMotorEx rightOdo;
     public DcMotorEx leftOdo;
     public DcMotorEx midOdo;
@@ -68,9 +60,7 @@ public class Drivetrain extends LinearOpMode {
         armmotorThird = hwMap.dcMotor.get("amthird");
         armslider = hwMap.dcMotor.get("amslider");
         //wrist = hwMap.crservo.get("wrist");
-        claw1 = hwMap.servo.get("claw");
-        //rightWheel = hwMap.crservo.get("rightwheel");
-        //leftWheel = hwMap.crservo.get("leftwheel");
+        claw1 = hwMap.servo.get("claw"); // IDK WHY I CALLED THIS CLAW1 FUCK THIS CLUB
         //rightOdo = hwMap.get(DcMotorEx.class, "rightodo");
         //rightOdo.setDirection(DcMotorSimple.Direction.REVERSE);
         //leftOdo = hwMap.get(DcMotorEx.class, "amtop");
@@ -78,39 +68,22 @@ public class Drivetrain extends LinearOpMode {
 
 
 
-        /**
-         * Allow the 4 wheel motors to be run without encoders since we are doing a time based autonomous
-         * **/
+        //set up driving mode
         topLeftDriveMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         bottomLeftDriveMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         topRightDriveMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         bottomRightDriveMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
-        /**
-         *Since we are putting the motors on different sides we need to reverse direction so that one wheel doesn't pull us backwards
-         * **/
-        //THIS IS THE CORRECT ORIENTATION
+
+        //THIS IS THE CORRECT ORIENTATION, 3 OF THE MOTORS ARE REVERSED FOR SOME GOD DAMN REASON
         topLeftDriveMotor.setDirection(DcMotor.Direction.REVERSE);
         topRightDriveMotor.setDirection(DcMotor.Direction.REVERSE);
         bottomRightDriveMotor.setDirection(DcMotor.Direction.REVERSE);
-        
-        /**
-         * Reverses shooter motor to shoot the correct way and same with the conveyor motor
-         * **/
 
-        /**
-         * We are setting the motor 0 mode power to be brake as it actively stops the robot and doesn't rely on the surface to slow down once the robot power is set to 0
-         * **/
-        /**
-        topLeftDriveMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        bottomLeftDriveMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        topRightDriveMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        bottomRightDriveMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-         **/
 
 
         /** 2024 CODE
-         set the arm motors to brake
+         set the arm motors to brake TO MAKE SURE THAT WE DO NOT FUCKING FUCK ANYTHING
          */
         armmotorLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         armmotorRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -134,14 +107,9 @@ public class Drivetrain extends LinearOpMode {
 
     }
 
-    public void power(double output) {
-        topLeftDriveMotor.setPower(-output);
-        bottomLeftDriveMotor.setPower(-output);
-        topRightDriveMotor.setPower(output);
-        bottomRightDriveMotor.setPower(output);
-    }
 
-    public void moveRobot(double leftStickY, double leftStickX, double rightStickX) {
+
+    public void moveRobot(double leftStickY, double leftStickX, double rightStickX) { // INCREASED POWER FROM LAST YEAR!!! MORE POWER = MORE GOOD...?
         /**
          * Wheel powers calculated using gamepad 1's inputs leftStickY, leftStickX, and rightStickX
          * **/
@@ -157,22 +125,6 @@ public class Drivetrain extends LinearOpMode {
         bottomLeftDriveMotor.setPower(backLeftPower);
         topRightDriveMotor.setPower(frontRightPower);
         bottomRightDriveMotor.setPower(backRightPower);
-    }
-
-    public void moveRobotSlow(double leftStickY, double leftStickX, double rightStickX) {
-        double y = -leftStickY * .3; // Remember, Y stick value is reversed
-        double x = leftStickX * 1.1 * .3; // Counteract imperfect strafing
-        double rx = rightStickX * .3;
-        double denominator = Math.max(Math.abs(y) + Math.abs(x) + Math.abs(rx), 1);
-        double frontLeftPower = (y + x + rx) / denominator;
-        double backLeftPower = (y - x + rx) / denominator;
-        double frontRightPower = (y - x - rx) / denominator;
-        double backRightPower = (y + x - rx) / denominator;
-        topLeftDriveMotor.setPower(frontLeftPower);
-        bottomLeftDriveMotor.setPower(backLeftPower);
-        topRightDriveMotor.setPower(frontRightPower);
-        bottomRightDriveMotor.setPower(backRightPower);
-
     }
 
     public void armMovement(Gamepad gamepad1, Gamepad gamepad2) throws InterruptedException {
@@ -191,7 +143,7 @@ public class Drivetrain extends LinearOpMode {
             }
 
         } else if (gamepad2.left_trigger > 0) { // move arm backward
-            if (gamepad2.x) {
+            if (gamepad2.x) { // increase power when pressed!! INCREASE POWER INCREASE POWER INCREASE POWER!!!!!!
                 armmotorLeft.setPower(-.8 * gamepad2.left_trigger);
                 armmotorRight.setPower(-.8 * gamepad2.left_trigger);
                 armmotorThird.setPower(-.8 * gamepad2.left_trigger);
@@ -207,6 +159,8 @@ public class Drivetrain extends LinearOpMode {
             armmotorThird.setPower(0);
         }
 
+        // added when armslider was new
+
         if (gamepad2.right_bumper) { // extend arm
             armslider.setPower(1);
         } else if (gamepad2.left_bumper) { //retract arm
@@ -220,29 +174,13 @@ public class Drivetrain extends LinearOpMode {
         /*claw functions: PLEASE TEST BEFORE MODIFYING
                 |
                 v        */
-        if (gamepad2.b) {
+        if (gamepad2.b) { // MODIFIED FROM LAST YEAR, NEW LIMITS AND NEW CLAW ATTACHED
             claw1.setPosition(0);
         }
         if (gamepad2.a) {
             claw1.setPosition(0.5);
         }
-
-
-        /*if (gamepad1.back) {
-            double hang = 1.5;
-            armmotorTop.setPower(hang);
-            armmotorBottom.setPower(hang);
-            sleep(10000000);
-            }
-*/
-
-
-
-
     }
-
-
-
 }
 
 

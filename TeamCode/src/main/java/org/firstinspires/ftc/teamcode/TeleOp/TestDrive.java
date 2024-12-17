@@ -14,8 +14,7 @@ public class TestDrive extends LinearOpMode {
         drivetrain.init(hardwareMap);
         waitForStart();
         while (opModeIsActive()){
-            //this is now working
-            //drivetrain.claw.setPower(.5);
+            //no odometry because they keep changing our shit
             //telemetry.addData("rightodo", drivetrain.rightOdo.getCurrentPosition());
             //telemetry.addData("leftodo", drivetrain.leftOdo.getCurrentPosition());
             //telemetry.addData("midodo", drivetrain.midOdo.getCurrentPosition());
