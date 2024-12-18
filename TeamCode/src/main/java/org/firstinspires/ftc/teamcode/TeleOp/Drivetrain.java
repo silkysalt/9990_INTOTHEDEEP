@@ -133,7 +133,7 @@ public class Drivetrain extends LinearOpMode {
 
         //!!!!MOVEMENT FOR ARM!!!!
         // i had to code thids and figure out what way the motors were going because if it fucks up it breaks the whole thing and i would be angry and annoyed and stupid if it did stupid stuff ugh
-        if (gamepad2.right_trigger > 0) { // move arm forward
+        if (gamepad2.right_trigger > 0) { // move arm up
             if (gamepad2.x) {
                 armmotorLeft.setPower(.8 * gamepad2.right_trigger);
                 armmotorRight.setPower(.8 * gamepad2.right_trigger);
@@ -144,7 +144,7 @@ public class Drivetrain extends LinearOpMode {
                 armmotorThird.setPower(.4 * gamepad2.right_trigger);
             }
 
-        } else if (gamepad2.left_trigger > 0) { // move arm backward
+        } else if (gamepad2.left_trigger > 0) { // move arm down
             if (gamepad2.x) { // increase power when pressed!! INCREASE POWER INCREASE POWER INCREASE POWER!!!!!!
                 armmotorLeft.setPower(-.8 * gamepad2.left_trigger);
                 armmotorRight.setPower(-.8 * gamepad2.left_trigger);
@@ -181,6 +181,13 @@ public class Drivetrain extends LinearOpMode {
         }
         if (gamepad2.a) {
             claw1.setPosition(0.5);
+        }
+        if (gamepad1.back) {
+            double hang = -.8;
+            armmotorLeft.setPower(hang);
+            armmotorRight.setPower(hang);
+            armmotorThird.setPower(hang);
+            sleep(10000000);
         }
     }
 }
