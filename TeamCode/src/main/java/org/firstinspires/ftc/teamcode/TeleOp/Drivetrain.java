@@ -29,6 +29,7 @@ public class Drivetrain extends LinearOpMode {
     public double Ki = 0;
     public double Kd = 0;
 
+    public int hangConstant;
     HardwareMap hwMap;
 
     public void runOpMode() {
@@ -87,6 +88,7 @@ public class Drivetrain extends LinearOpMode {
          */
         armmotorLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         armmotorRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        armmotorThird.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         armslider.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
         /*
@@ -129,7 +131,13 @@ public class Drivetrain extends LinearOpMode {
     }
 
     public void armMovement(Gamepad gamepad1, Gamepad gamepad2) throws InterruptedException {
-
+        // execute the robot!!!! we are like the salem witch trials in here
+        if (hangConstant==1) {
+            double hang = -.55;
+            armmotorLeft.setPower(hang);
+            armmotorRight.setPower(hang);
+            armmotorThird.setPower(hang);
+        }
 
         //!!!!MOVEMENT FOR ARM!!!!
         // i had to code thids and figure out what way the motors were going because if it fucks up it breaks the whole thing and i would be angry and annoyed and stupid if it did stupid stuff ugh
@@ -164,10 +172,10 @@ public class Drivetrain extends LinearOpMode {
         // added when armslider was new
 
         if (gamepad2.right_bumper) { // extend arm
-            armslider.setPower(1);
+            armslider.setPower(-1);
         } else if (gamepad2.left_bumper) { //retract arm
-            if (armslider.getCurrentPosition()<-200) {
-                armslider.setPower(-1);
+            if (armslider.getCurrentPosition()<0) {
+                armslider.setPower(1);
             }
         } else {
             armslider.setPower(0);
@@ -180,14 +188,10 @@ public class Drivetrain extends LinearOpMode {
             claw1.setPosition(0);
         }
         if (gamepad2.a) {
-            claw1.setPosition(0.5);
+            claw1.setPosition(0.25);
         }
-        if (gamepad1.back) {
-            double hang = -.8;
-            armmotorLeft.setPower(hang);
-            armmotorRight.setPower(hang);
-            armmotorThird.setPower(hang);
-            sleep(10000000);
+        if (gamepad2.back) { // WAS*** NOT GAMEPAD 2
+            hangConstant = 1;
         }
     }
 }
