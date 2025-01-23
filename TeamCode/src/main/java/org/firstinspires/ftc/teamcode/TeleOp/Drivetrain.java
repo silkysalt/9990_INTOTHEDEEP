@@ -22,12 +22,6 @@ public class Drivetrain extends LinearOpMode {
     public static DcMotor armslider;
     //all unnecessary code from last year
     public static Servo claw1; // GOD DAMN IT
-    public DcMotorEx rightOdo;
-    public DcMotorEx leftOdo;
-    public DcMotorEx midOdo;
-    public double Kp = 8.5;
-    public double Ki = 0;
-    public double Kd = 0;
 
     public int hangConstant;
     HardwareMap hwMap;
@@ -61,7 +55,7 @@ public class Drivetrain extends LinearOpMode {
         armmotorThird = hwMap.dcMotor.get("amthird");
         armslider = hwMap.dcMotor.get("amslider");
         //wrist = hwMap.crservo.get("wrist");
-        claw1 = hwMap.servo.get("claw"); // IDK WHY I CALLED THIS CLAW1 FUCK THIS CLUB
+        claw1 = hwMap.servo.get("claw"); // IDK WHY I CALLED THIS CLAW1 F THIS CLUB
         //rightOdo = hwMap.get(DcMotorEx.class, "rightodo");
         //rightOdo.setDirection(DcMotorSimple.Direction.REVERSE);
         //leftOdo = hwMap.get(DcMotorEx.class, "amtop");
@@ -84,7 +78,7 @@ public class Drivetrain extends LinearOpMode {
 
 
         /** 2024 CODE
-         set the arm motors to brake TO MAKE SURE THAT WE DO NOT FUCKING FUCK ANYTHING
+         set the arm motors to brake TO MAKE SURE THAT WE DO NOT FING F ANYTHING
          */
         armmotorLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         armmotorRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -114,7 +108,7 @@ public class Drivetrain extends LinearOpMode {
     public void moveRobot(double leftStickY, double leftStickX, double rightStickX) { // INCREASED POWER FROM LAST YEAR!!! MORE POWER = MORE GOOD...?
         /**
          * Wheel powers calculated using gamepad 1's inputs leftStickY, leftStickX, and rightStickX
-         * hfhghjksfdhjksdfjhlsfdhjlfdshjadfhjashsaj AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA FRIIICK  we reused this shit and it intentionally has shitty strafing because fuck mecanum wheels
+         * hfhghjksfdhjksdfjhlsfdhjlfdshjadfhjashsaj AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA FRIIICK  we reused this shit and it intentionally has shitty strafing because F mecanum wheels
          * **/
         double y = -leftStickY * 1; // Remember, Y stick value is reversed
         double x = leftStickX * 1.1 * 1; // Counteract imperfect strafing
@@ -140,7 +134,7 @@ public class Drivetrain extends LinearOpMode {
         }
 
         //!!!!MOVEMENT FOR ARM!!!!
-        // i had to code thids and figure out what way the motors were going because if it fucks up it breaks the whole thing and i would be angry and annoyed and stupid if it did stupid stuff ugh
+        // i had to code thids and figure out what way the motors were going because if it messes up it breaks the whole thing and i would be angry and annoyed and stupid if it did stupid stuff ugh
         if (gamepad2.right_trigger > 0) { // move arm up
             if (gamepad2.x) {
                 armmotorLeft.setPower(.8 * gamepad2.right_trigger);
