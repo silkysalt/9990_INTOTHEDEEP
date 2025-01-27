@@ -141,9 +141,9 @@ public class Drivetrain extends LinearOpMode {
                 armmotorRight.setPower(.8 * gamepad2.right_trigger);
                 armmotorThird.setPower(.8 * gamepad2.right_trigger);
             } else {
-                armmotorLeft.setPower(.4 * gamepad2.right_trigger);
-                armmotorRight.setPower(.4 * gamepad2.right_trigger);
-                armmotorThird.setPower(.4 * gamepad2.right_trigger);
+                armmotorLeft.setPower(.6 * gamepad2.right_trigger);
+                armmotorRight.setPower(.6 * gamepad2.right_trigger);
+                armmotorThird.setPower(.6 * gamepad2.right_trigger);
             }
 
         } else if (gamepad2.left_trigger > 0) { // move arm down
@@ -152,9 +152,9 @@ public class Drivetrain extends LinearOpMode {
                 armmotorRight.setPower(-.8 * gamepad2.left_trigger);
                 armmotorThird.setPower(-.8 * gamepad2.left_trigger);
             }   else {
-                armmotorLeft.setPower(-.4 * gamepad2.left_trigger);
-                armmotorRight.setPower(-.4 * gamepad2.left_trigger);
-                armmotorThird.setPower(-.4 * gamepad2.left_trigger);
+                armmotorLeft.setPower(-.6 * gamepad2.left_trigger);
+                armmotorRight.setPower(-.6 * gamepad2.left_trigger);
+                armmotorThird.setPower(-.6 * gamepad2.left_trigger);
             }
 
         } else {
@@ -168,9 +168,7 @@ public class Drivetrain extends LinearOpMode {
         if (gamepad2.right_bumper) { // extend arm
             armslider.setPower(-1);
         } else if (gamepad2.left_bumper) { //retract arm
-            if (armslider.getCurrentPosition()<0) {
-                armslider.setPower(1);
-            }
+            armslider.setPower(1);
         } else {
             armslider.setPower(0);
         }
@@ -179,10 +177,10 @@ public class Drivetrain extends LinearOpMode {
                 |
                 v        */
         if (gamepad2.b) { // MODIFIED FROM LAST YEAR, NEW LIMITS AND NEW CLAW ATTACHED
-            claw1.setPosition(0);
+            claw1.setPosition(1);
         }
         if (gamepad2.a) {
-            claw1.setPosition(0.25);
+            claw1.setPosition(0.7);
         }
         if (gamepad2.back) { // WAS*** NOT GAMEPAD 2
             hangConstant = 1;

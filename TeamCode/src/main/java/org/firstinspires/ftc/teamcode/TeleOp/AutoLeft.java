@@ -7,8 +7,8 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
-@Autonomous(name="Autonomous Right 2025", group="Robot")
-public class Auto extends LinearOpMode {
+@Autonomous(name="Autonomous Left 2025", group="Robot")
+public class AutoLeft extends LinearOpMode {
     public DcMotor topLeftDriveMotor;
     public DcMotor bottomLeftDriveMotor;
     public DcMotor topRightDriveMotor;
@@ -30,9 +30,13 @@ public class Auto extends LinearOpMode {
         armmotorLeft.setPower(0.45);
         armmotorRight.setPower(0.45);
         armmotorThird.setPower(0.45);
+        sleep(1600);
+        armmotorLeft.setPower(0);
+        armmotorRight.setPower(0);
+        armmotorThird.setPower(0);
+        armslider.setPower(-0.45);
         sleep(1300);
-        armslider.setPower(-0.5);
-        sleep(100);
+        armslider.setPower(0);
         armmotorLeft.setPower(0);
         armmotorRight.setPower(0);
         armmotorThird.setPower(0);
@@ -40,7 +44,7 @@ public class Auto extends LinearOpMode {
         bottomLeftDriveMotor.setPower(0.4);
         topRightDriveMotor.setPower(0.4);
         bottomRightDriveMotor.setPower(0.4);
-        sleep(1200);
+        sleep(1400);
         topLeftDriveMotor.setPower(0);
         bottomLeftDriveMotor.setPower(0);
         topRightDriveMotor.setPower(0);
@@ -61,13 +65,13 @@ public class Auto extends LinearOpMode {
         bottomLeftDriveMotor.setPower(-0.45);
         topRightDriveMotor.setPower(-0.45);
         bottomRightDriveMotor.setPower(-0.45);
-        sleep(700);
+        sleep(900);
         topLeftDriveMotor.setPower(0);
         bottomLeftDriveMotor.setPower(0);
         topRightDriveMotor.setPower(0);
         bottomRightDriveMotor.setPower(0);
         armslider.setPower(0.5);
-        sleep(2200);
+        sleep(1000);
         armslider.setPower(0);
         armmotorLeft.setPower(-0.5);
         armmotorRight.setPower(-0.5);
@@ -76,25 +80,25 @@ public class Auto extends LinearOpMode {
         armmotorLeft.setPower(0);
         armmotorRight.setPower(0);
         armmotorThird.setPower(0);
-        topLeftDriveMotor.setPower(.5);
-        bottomLeftDriveMotor.setPower(-0.5);
-        topRightDriveMotor.setPower(-.5);
-        bottomRightDriveMotor.setPower(.5);
-        sleep(2300);
-        topLeftDriveMotor.setPower(0);
-        bottomLeftDriveMotor.setPower(0);
-        topRightDriveMotor.setPower(0);
-        bottomRightDriveMotor.setPower(0);
-        sleep(200);
-        topLeftDriveMotor.setPower(-.45);
-        bottomLeftDriveMotor.setPower(-.45);
-        topRightDriveMotor.setPower(-.45);
-        bottomRightDriveMotor.setPower(-.45);
-        sleep(350);
-        topLeftDriveMotor.setPower(0);
-        bottomLeftDriveMotor.setPower(0);
-        topRightDriveMotor.setPower(0);
-        bottomRightDriveMotor.setPower(0);
+//        topLeftDriveMotor.setPower(.5);
+//        bottomLeftDriveMotor.setPower(-0.5);
+//        topRightDriveMotor.setPower(-.5);
+//        bottomRightDriveMotor.setPower(.5);
+//        sleep(2300);
+//        topLeftDriveMotor.setPower(0);
+//        bottomLeftDriveMotor.setPower(0);
+//        topRightDriveMotor.setPower(0);
+//        bottomRightDriveMotor.setPower(0);
+//        sleep(200);
+//        topLeftDriveMotor.setPower(-.45);
+//        bottomLeftDriveMotor.setPower(-.45);
+//        topRightDriveMotor.setPower(-.45);
+//        bottomRightDriveMotor.setPower(-.45);
+//        sleep(300);
+//        topLeftDriveMotor.setPower(0);
+//        bottomLeftDriveMotor.setPower(0);
+//        topRightDriveMotor.setPower(0);
+//        bottomRightDriveMotor.setPower(0);
 
     }
 
