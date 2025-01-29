@@ -15,21 +15,22 @@ import org.firstinspires.ftc.teamcode.TankDrive;
 public final class SplineTest extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
-        Pose2d beginPose = new Pose2d(0, 0, 0);
+        Pose2d beginPose = new Pose2d(-10, 62, Math.toRadians(270));
         if (TuningOpModes.DRIVE_CLASS.equals(MecanumDrive.class)) {
             MecanumDrive drive = new MecanumDrive(hardwareMap, beginPose);
             waitForStart();
             Actions.runBlocking(
 
                     drive.actionBuilder(beginPose)
-                            .lineToX(30)
-                            .turn(Math.toRadians(90))
-                            .lineToY(30)
-                            .turn(Math.toRadians(90))
-                            .lineToX(0)
-                            .turn(Math.toRadians(90))
-                            .lineToY(0)
-                            .turn(Math.toRadians(90))
+                            .lineToY(35)
+//                            .lineToX(30)
+//                            .turn(Math.toRadians(90))
+//                            .lineToY(30)
+//                            .turn(Math.toRadians(90))
+//                            .lineToX(0)
+//                            .turn(Math.toRadians(90))
+//                            .lineToY(0)
+//                            .turn(Math.toRadians(90))
                             .build());
 //                            .splineTo(new Vector2d(-5, 50), Math.toRadians(-90), new TranslationalVelConstraint(20.0), new ProfileAccelConstraint(-10.0, 10.0))
 //                            .waitSeconds(1)
