@@ -22,10 +22,15 @@ public final class SplineTest extends LinearOpMode {
             Actions.runBlocking(
 
                     drive.actionBuilder(beginPose)
-                            .splineTo(new Vector2d(10, 10), Math.PI / 2)
-                            .splineTo(new Vector2d(0, 0), Math.PI)
+                            .lineToX(30)
+                            .turn(Math.toRadians(90))
+                            .lineToY(30)
+                            .turn(Math.toRadians(90))
+                            .lineToX(0)
+                            .turn(Math.toRadians(90))
+                            .lineToY(0)
+                            .turn(Math.toRadians(90))
                             .build());
-
 //                            .splineTo(new Vector2d(-5, 50), Math.toRadians(-90), new TranslationalVelConstraint(20.0), new ProfileAccelConstraint(-10.0, 10.0))
 //                            .waitSeconds(1)
 //                            //.back(16)
