@@ -25,7 +25,7 @@ public class AutoLeft extends LinearOpMode {
     public void runOpMode() {
         init(hardwareMap);
         waitForStart();
-        claw1.setPosition(0);
+        claw1.setPosition(1);
         sleep(100);
         armmotorLeft.setPower(0.45);
         armmotorRight.setPower(0.45);
@@ -44,7 +44,7 @@ public class AutoLeft extends LinearOpMode {
         bottomLeftDriveMotor.setPower(0.4);
         topRightDriveMotor.setPower(0.4);
         bottomRightDriveMotor.setPower(0.4);
-        sleep(1400);
+        sleep(1200);
         topLeftDriveMotor.setPower(0);
         bottomLeftDriveMotor.setPower(0);
         topRightDriveMotor.setPower(0);
@@ -54,13 +54,13 @@ public class AutoLeft extends LinearOpMode {
         bottomLeftDriveMotor.setPower(0.45);
         topRightDriveMotor.setPower(0.45);
         bottomRightDriveMotor.setPower(0.45);
-        sleep(200);
+        sleep(400);
         topLeftDriveMotor.setPower(0);
         bottomLeftDriveMotor.setPower(0);
         topRightDriveMotor.setPower(0);
         bottomRightDriveMotor.setPower(0);
         sleep(200);
-        claw1.setPosition(0.25);
+        claw1.setPosition(0.5);
         topLeftDriveMotor.setPower(-0.45);
         bottomLeftDriveMotor.setPower(-0.45);
         topRightDriveMotor.setPower(-0.45);
@@ -80,11 +80,55 @@ public class AutoLeft extends LinearOpMode {
         armmotorLeft.setPower(0);
         armmotorRight.setPower(0);
         armmotorThird.setPower(0);
+        topLeftDriveMotor.setPower(-.5);
+        bottomLeftDriveMotor.setPower(0.5);
+        topRightDriveMotor.setPower(.5);
+        bottomRightDriveMotor.setPower(-.5);
+        sleep(2200);
+//        topLeftDriveMotor.setPower(0);
+//        bottomLeftDriveMotor.setPower(0);
+//        topRightDriveMotor.setPower(0);
+//        bottomRightDriveMotor.setPower(0);
+//        sleep(200);
+//        topLeftDriveMotor.setPower(-0.5);
+//        bottomLeftDriveMotor.setPower(0.5);
+//        topRightDriveMotor.setPower(-0.5);
+//        bottomRightDriveMotor.setPower(0.5);
+//        //basket start
+//        sleep(200);
+//        topLeftDriveMotor.setPower(0);
+//        bottomLeftDriveMotor.setPower(0);
+//        topRightDriveMotor.setPower(0);
+//        bottomRightDriveMotor.setPower(0);
+//        sleep(50);
 //        topLeftDriveMotor.setPower(.5);
-//        bottomLeftDriveMotor.setPower(-0.5);
-//        topRightDriveMotor.setPower(-.5);
+//        bottomLeftDriveMotor.setPower(.5);
+//        topRightDriveMotor.setPower(.5);
 //        bottomRightDriveMotor.setPower(.5);
-//        sleep(2300);
+//        sleep(200);
+//        topLeftDriveMotor.setPower(0);
+//        bottomLeftDriveMotor.setPower(0);
+//        topRightDriveMotor.setPower(0);
+//        bottomRightDriveMotor.setPower(0);
+//        sleep(50);
+//        armmotorLeft.setPower(0);
+//        armmotorRight.setPower(0);
+//        armmotorThird.setPower(0);
+//        sleep(50);
+//        armslider.setPower(0);
+//        sleep(50);
+//        armslider.setPower(-0.5);
+//        sleep(1000);
+//        armmotorLeft.setPower(-0.5);
+//        armmotorRight.setPower(-0.5);
+//        armmotorThird.setPower(-0.5);
+//        sleep(150);
+
+
+
+
+
+
 //        topLeftDriveMotor.setPower(0);
 //        bottomLeftDriveMotor.setPower(0);
 //        topRightDriveMotor.setPower(0);

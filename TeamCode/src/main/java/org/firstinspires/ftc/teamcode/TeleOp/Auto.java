@@ -25,12 +25,12 @@ public class Auto extends LinearOpMode {
     public void runOpMode() {
         init(hardwareMap);
         waitForStart();
-        claw1.setPosition(0);
+        claw1.setPosition(1);
         sleep(100);
         armmotorLeft.setPower(0.45);
         armmotorRight.setPower(0.45);
         armmotorThird.setPower(0.45);
-        sleep(1300);
+        sleep(1000);
         armslider.setPower(-0.5);
         sleep(100);
         armmotorLeft.setPower(0);
@@ -40,7 +40,7 @@ public class Auto extends LinearOpMode {
         bottomLeftDriveMotor.setPower(0.4);
         topRightDriveMotor.setPower(0.4);
         bottomRightDriveMotor.setPower(0.4);
-        sleep(1200);
+        sleep(1100);
         topLeftDriveMotor.setPower(0);
         bottomLeftDriveMotor.setPower(0);
         topRightDriveMotor.setPower(0);
@@ -56,7 +56,7 @@ public class Auto extends LinearOpMode {
         topRightDriveMotor.setPower(0);
         bottomRightDriveMotor.setPower(0);
         sleep(200);
-        claw1.setPosition(0.25);
+        claw1.setPosition(0.5);
         topLeftDriveMotor.setPower(-0.45);
         bottomLeftDriveMotor.setPower(-0.45);
         topRightDriveMotor.setPower(-0.45);
