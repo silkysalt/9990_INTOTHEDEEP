@@ -3,7 +3,9 @@ package org.firstinspires.ftc.teamcode.TeleOp;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DistanceSensor;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
@@ -13,12 +15,13 @@ public class Auto extends LinearOpMode {
     public DcMotor bottomLeftDriveMotor;
     public DcMotor topRightDriveMotor;
     public DcMotor bottomRightDriveMotor;
-    public static DcMotor armmotorLeft;
+    public DcMotor armmotorLeft;
     public DcMotor armmotorRight;
     public DcMotor armmotorThird;
-    public static DcMotor armslider;
-    public static Servo claw1;
-
+    public DcMotor armslider;
+    public Servo claw1;
+    public ColorSensor colorSensor;    // Hardware Device Object
+    public DistanceSensor distanceSensor;
     public int hangConstant;
     HardwareMap hwMap;
 
@@ -34,7 +37,7 @@ public class Auto extends LinearOpMode {
         armmotorLeft.setPower(0);
         armmotorRight.setPower(0);
         armmotorThird.setPower(0);
-        armslider.setPower(-0.45);
+        armslider.setPower(-0.2);
         sleep(1200);
         armslider.setPower(0);
         armmotorLeft.setPower(0);
@@ -70,7 +73,7 @@ public class Auto extends LinearOpMode {
         bottomLeftDriveMotor.setPower(0);
         topRightDriveMotor.setPower(0);
         bottomRightDriveMotor.setPower(0);
-        armslider.setPower(0.5);
+        armslider.setPower(0.2);
         sleep(1000);
         armslider.setPower(0);
         armmotorLeft.setPower(-0.5);
@@ -106,6 +109,9 @@ public class Auto extends LinearOpMode {
     public void init(HardwareMap ahwMap) {
 
         hwMap = ahwMap;
+        // Sensors
+        colorSensor = hwMap.get(ColorSensor.class, "sensor_color");
+        distanceSensor = hwMap.get(DistanceSensor.class, "sensor_color");
 
         // Control Hub
         topLeftDriveMotor = hwMap.get(DcMotor.class, "frontleft");
