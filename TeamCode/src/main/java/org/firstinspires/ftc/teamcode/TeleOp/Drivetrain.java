@@ -134,7 +134,7 @@ public class Drivetrain extends LinearOpMode {
         }
 
         //!!!!MOVEMENT FOR ARM!!!!
-        // i had to code thids and figure out what way the motors were going because if it messes up it breaks the whole thing and i would be angry and annoyed and stupid if it did stupid stuff ugh
+        // i had to code this and figure out what way the motors were going because if it messes up it breaks the whole thing and i would be angry and annoyed and stupid if it did stupid stuff ugh
         if (gamepad2.right_trigger > 0) { // move arm up
             if (gamepad2.x) {
                 armmotorLeft.setPower(.8 * gamepad2.right_trigger);
@@ -162,12 +162,18 @@ public class Drivetrain extends LinearOpMode {
             armmotorRight.setPower(0);
             armmotorThird.setPower(0);
         }
-
+        //ARMSLIDER CODEEEEEE!!!!!!!!
         // added when armslider was new
 
         if (gamepad2.right_bumper) { // extend arm
+            if(gamepad2.y) {
+                armslider.setPower(-.45);
+            }
             armslider.setPower(-1);
         } else if (gamepad2.left_bumper) { //retract arm
+            if(gamepad2.y) {
+                armslider.setPower(.45);
+            }
             armslider.setPower(1);
         } else {
             armslider.setPower(0);
