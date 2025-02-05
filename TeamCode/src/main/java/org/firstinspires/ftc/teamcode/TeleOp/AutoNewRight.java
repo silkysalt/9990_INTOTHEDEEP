@@ -10,7 +10,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
 @Autonomous(name="Autonomous Right 2025 New", group="Robot")
-public class AutoNew extends LinearOpMode {
+public class AutoNewRight extends LinearOpMode {
     public DcMotor topLeftDriveMotor;
     public DcMotor bottomLeftDriveMotor;
     public DcMotor topRightDriveMotor;
@@ -33,7 +33,7 @@ public class AutoNew extends LinearOpMode {
         armmotorLeft.setPower(0.5);
         armmotorRight.setPower(0.5);
         armmotorThird.setPower(0.5);
-        sleep(1000);
+        sleep(1150);
         armmotorLeft.setPower(0);
         armmotorRight.setPower(0);
         armmotorThird.setPower(0);
