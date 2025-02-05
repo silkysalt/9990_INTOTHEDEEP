@@ -10,7 +10,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
 @Autonomous(name="New Autonomous Left 2025", group="Robot")
-public class AutoLeftNew extends LinearOpMode {
+public class AutoNewLeft extends LinearOpMode {
 
     public ColorSensor colorSensor;    // Hardware Device Object
     public DistanceSensor distanceSensor;
@@ -34,7 +34,7 @@ public class AutoLeftNew extends LinearOpMode {
         claw1.setPosition(1);
         sleep(100);
         moveArm(0.5,1500);
-        moveArmSlider(1,2100);
+        moveArmSlider(1,-2100);
     }
 
 
@@ -84,7 +84,7 @@ public class AutoLeftNew extends LinearOpMode {
 
         // ARM SLIDER MOTOR
         armslider.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
+        armslider.setDirection(DcMotor.Direction.REVERSE);
 
 
 
