@@ -33,95 +33,7 @@ public class AutoLeftNew extends LinearOpMode {
         waitForStart();
         claw1.setPosition(1);
         sleep(100);
-
-//        sleep(200);
-//        topLeftDriveMotor.setPower(.5);
-//        bottomLeftDriveMotor.setPower(.5);
-//        topRightDriveMotor.setPower(.5);
-//        bottomRightDriveMotor.setPower(.5);
-//        sleep(1700);
-//        topLeftDriveMotor.setPower(0);
-//        bottomLeftDriveMotor.setPower(0);
-//        topRightDriveMotor.setPower(0);
-//        bottomRightDriveMotor.setPower(0);
-//        sleep(200);
-//        topLeftDriveMotor.setPower(.5);
-//        bottomLeftDriveMotor.setPower(.5);
-//        topRightDriveMotor.setPower(-.5);
-//        bottomRightDriveMotor.setPower(-.5);
-//        sleep(700);
-//        topLeftDriveMotor.setPower(0);
-//        bottomLeftDriveMotor.setPower(0);
-//        topRightDriveMotor.setPower(0);
-//        bottomRightDriveMotor.setPower(0);
-//        sleep(200);
-//        topLeftDriveMotor.setPower(0.45);
-//        bottomLeftDriveMotor.setPower(0.45);
-//        topRightDriveMotor.setPower(0.45);
-//        bottomRightDriveMotor.setPower(0.45);
-//        sleep(500);
-//        topLeftDriveMotor.setPower(0);
-//        bottomLeftDriveMotor.setPower(0);
-//        topRightDriveMotor.setPower(0);
-//        bottomRightDriveMotor.setPower(0);
-//        topLeftDriveMotor.setPower(0);
-//        bottomLeftDriveMotor.setPower(0);
-//        topRightDriveMotor.setPower(0);
-//        bottomRightDriveMotor.setPower(0);
-//        sleep(200);
-//        topLeftDriveMotor.setPower(-0.5);
-//        bottomLeftDriveMotor.setPower(0.5);
-//        topRightDriveMotor.setPower(-0.5);
-//        bottomRightDriveMotor.setPower(0.5);
-//        //basket start
-//        sleep(200);
-//        topLeftDriveMotor.setPower(0);
-//        bottomLeftDriveMotor.setPower(0);
-//        topRightDriveMotor.setPower(0);
-//        bottomRightDriveMotor.setPower(0);
-//        sleep(50);
-//        topLeftDriveMotor.setPower(.5);
-//        bottomLeftDriveMotor.setPower(.5);
-//        topRightDriveMotor.setPower(.5);
-//        bottomRightDriveMotor.setPower(.5);
-//        sleep(200);
-//        topLeftDriveMotor.setPower(0);
-//        bottomLeftDriveMotor.setPower(0);
-//        topRightDriveMotor.setPower(0);
-//        bottomRightDriveMotor.setPower(0);
-//        sleep(50);
-//        armmotorLeft.setPower(0);
-//        armmotorRight.setPower(0);
-//        armmotorThird.setPower(0);
-//        sleep(50);
-//        armslider.setPower(0);
-//        sleep(50);
-//        armslider.setPower(-0.5);
-//        sleep(1000);
-//        armmotorLeft.setPower(-0.5);
-//        armmotorRight.setPower(-0.5);
-//        armmotorThird.setPower(-0.5);
-//        sleep(150);
-
-
-
-
-
-
-//        topLeftDriveMotor.setPower(0);
-//        bottomLeftDriveMotor.setPower(0);
-//        topRightDriveMotor.setPower(0);
-//        bottomRightDriveMotor.setPower(0);
-//        sleep(200);
-//        topLeftDriveMotor.setPower(-.45);
-//        bottomLeftDriveMotor.setPower(-.45);
-//        topRightDriveMotor.setPower(-.45);
-//        bottomRightDriveMotor.setPower(-.45);
-//        sleep(300);
-//        topLeftDriveMotor.setPower(0);
-//        bottomLeftDriveMotor.setPower(0);
-//        topRightDriveMotor.setPower(0);
-//        bottomRightDriveMotor.setPower(0);
+        moveForward();
 
     }
 
@@ -172,6 +84,81 @@ public class AutoLeftNew extends LinearOpMode {
 
 
     }
-    public class moveForward(double power, double )
+    public void moveForward(double power, long time) {
+        topLeftDriveMotor.setPower(power);
+        bottomLeftDriveMotor.setPower(power);
+        topRightDriveMotor.setPower(power);
+        bottomRightDriveMotor.setPower(power);
+        sleep(time);
+        topLeftDriveMotor.setPower(0);
+        bottomLeftDriveMotor.setPower(0);
+        topRightDriveMotor.setPower(0);
+        bottomRightDriveMotor.setPower(0);
+    }
+    public void moveLeft(double power, long time) {
+        topLeftDriveMotor.setPower(-power);
+        bottomLeftDriveMotor.setPower(power);
+        topRightDriveMotor.setPower(power);
+        bottomRightDriveMotor.setPower(-power);
+        sleep(time);
+        topLeftDriveMotor.setPower(0);
+        bottomLeftDriveMotor.setPower(0);
+        topRightDriveMotor.setPower(0);
+        bottomRightDriveMotor.setPower(0);
+    }
+    public void moveRight(double power, long time) {
+        topLeftDriveMotor.setPower(power);
+        bottomLeftDriveMotor.setPower(-power);
+        topRightDriveMotor.setPower(-power);
+        bottomRightDriveMotor.setPower(power);
+        sleep(time);
+        topLeftDriveMotor.setPower(0);
+        bottomLeftDriveMotor.setPower(0);
+        topRightDriveMotor.setPower(0);
+        bottomRightDriveMotor.setPower(0);
+    }
+    public void moveBackward(double power, long time) {
+        topLeftDriveMotor.setPower(-power);
+        bottomLeftDriveMotor.setPower(-power);
+        topRightDriveMotor.setPower(-power);
+        bottomRightDriveMotor.setPower(-power);
+        sleep(time);
+        topLeftDriveMotor.setPower(0);
+        bottomLeftDriveMotor.setPower(0);
+        topRightDriveMotor.setPower(0);
+        bottomRightDriveMotor.setPower(0);
+    }
+    public void turnLeft(double power, long time) {
+        topLeftDriveMotor.setPower(-power);
+        bottomLeftDriveMotor.setPower(-power);
+        topRightDriveMotor.setPower(power);
+        bottomRightDriveMotor.setPower(power);
+        sleep(time);
+        topLeftDriveMotor.setPower(0);
+        bottomLeftDriveMotor.setPower(0);
+        topRightDriveMotor.setPower(0);
+        bottomRightDriveMotor.setPower(0);
+    }
+    public void turnRight(double power, long time) {
+        topLeftDriveMotor.setPower(power);
+        bottomLeftDriveMotor.setPower(power);
+        topRightDriveMotor.setPower(-power);
+        bottomRightDriveMotor.setPower(-power);
+        sleep(time);
+        topLeftDriveMotor.setPower(0);
+        bottomLeftDriveMotor.setPower(0);
+        topRightDriveMotor.setPower(0);
+        bottomRightDriveMotor.setPower(0);
+    }
+    public void moveArm(double power, long time) {
+        armmotorRight.setPower(power);
+        armmotorThird.setPower(power);
+        armmotorLeft.setPower(power);
+        sleep(time);
+        armmotorRight.setPower(0);
+        armmotorThird.setPower(0);
+        armmotorLeft.setPower(0);
+    }
+
 
 }
