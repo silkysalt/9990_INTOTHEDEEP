@@ -33,21 +33,29 @@ public class AutoNew extends LinearOpMode {
         armmotorLeft.setPower(0.5);
         armmotorRight.setPower(0.5);
         armmotorThird.setPower(0.5);
-        sleep(1400);
+        sleep(1000);
         armmotorLeft.setPower(0);
         armmotorRight.setPower(0);
         armmotorThird.setPower(0);
+        armslider.setPower(-0.8);
+        sleep(600);
         topLeftDriveMotor.setPower(0.4);
         bottomLeftDriveMotor.setPower(0.4);
         topRightDriveMotor.setPower(0.4);
         bottomRightDriveMotor.setPower(0.4);
+        armslider.setPower(0);
         sleep(1200);
         topLeftDriveMotor.setPower(0);
         bottomLeftDriveMotor.setPower(0);
         topRightDriveMotor.setPower(0);
         bottomRightDriveMotor.setPower(0);
-        armslider.setPower(-0.2);
-        sleep(400);
+        sleep(0);
+        topLeftDriveMotor.setPower(0);
+        bottomLeftDriveMotor.setPower(0);
+        topRightDriveMotor.setPower(0);
+        bottomRightDriveMotor.setPower(0);
+
+
 
     }
 
