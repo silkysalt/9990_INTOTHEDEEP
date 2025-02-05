@@ -33,7 +33,7 @@ public class AutoLeftNew extends LinearOpMode {
         waitForStart();
         claw1.setPosition(1);
         sleep(100);
-        moveForward();
+        moveArm(0.5,1500);
 
     }
 
@@ -80,6 +80,11 @@ public class AutoLeftNew extends LinearOpMode {
         armmotorRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         armmotorThird.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         armslider.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
+
+        // ARM SLIDER MOTOR
+        armslider.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        armslider.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
 
 
