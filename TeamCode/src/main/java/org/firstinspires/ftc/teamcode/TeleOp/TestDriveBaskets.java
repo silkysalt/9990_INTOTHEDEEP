@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 @TeleOp
-public class TestDrive extends LinearOpMode {
+public class TestDriveBaskets extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
         Drivetrain drivetrain = new Drivetrain();
@@ -32,11 +32,11 @@ public class TestDrive extends LinearOpMode {
 
             if (gamepad1.left_trigger > 0){
                 drivetrain.moveRobot(.4* lsy, .4*  lsx, .4*  rsx);
-                drivetrain.armMovement(gamepad1, gamepad2,0.85);
+                drivetrain.armMovement(gamepad1, gamepad2,1);
             }
             else{
                 drivetrain.moveRobot(lsy, lsx, rsx);
-                drivetrain.armMovement(gamepad1, gamepad2,0.85);
+                drivetrain.armMovement(gamepad1, gamepad2,1);
             }
         }
     }

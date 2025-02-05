@@ -70,10 +70,11 @@ public class Drivetrain extends LinearOpMode {
         bottomRightDriveMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
 
-        //THIS IS THE CORRECT ORIENTATION, 3 OF THE MOTORS ARE REVERSED FOR SOME GOD DAMN REASON
+        //THIS IS THE CORRECT ORIENTATION, 4 OF THE MOTORS ARE REVERSED FOR SOME REASON
         topLeftDriveMotor.setDirection(DcMotor.Direction.REVERSE);
         topRightDriveMotor.setDirection(DcMotor.Direction.REVERSE);
         bottomRightDriveMotor.setDirection(DcMotor.Direction.REVERSE);
+        armslider.setDirection(DcMotor.Direction.REVERSE);
 
 
 
@@ -124,7 +125,7 @@ public class Drivetrain extends LinearOpMode {
         bottomRightDriveMotor.setPower(backRightPower);
     }
 
-    public void armMovement(Gamepad gamepad1, Gamepad gamepad2) throws InterruptedException {
+    public void armMovement(Gamepad gamepad1, Gamepad gamepad2, double baskets) throws InterruptedException {
         // execute the robot!!!! we are like the salem witch trials in here
         if (hangConstant==1) {
             double hang = -.55;
@@ -167,15 +168,15 @@ public class Drivetrain extends LinearOpMode {
 
         if (gamepad2.right_bumper) { // extend arm
             if(gamepad2.y) {
-                armslider.setPower(-.25);
+                armslider.setPower(.25);
             } else {
-                armslider.setPower(-1);
+                armslider.setPower(baskets);
             }
         } else if (gamepad2.left_bumper) { //retract arm
             if(gamepad2.y) {
-                armslider.setPower(.25);
+                armslider.setPower(-.25);
             } else {
-                armslider.setPower(1);
+                armslider.setPower(-baskets);
             }
         } else {
             armslider.setPower(0);
