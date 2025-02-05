@@ -1,0 +1,88 @@
+package org.firstinspires.ftc.teamcode.TeleOp;
+
+
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.hardware.ColorSensor;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DistanceSensor;
+import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.Servo;
+
+@Autonomous(name="Autonomous Right 2025", group="Robot")
+public class AutoNew extends LinearOpMode {
+    public DcMotor topLeftDriveMotor;
+    public DcMotor bottomLeftDriveMotor;
+    public DcMotor topRightDriveMotor;
+    public DcMotor bottomRightDriveMotor;
+    public DcMotor armmotorLeft;
+    public DcMotor armmotorRight;
+    public DcMotor armmotorThird;
+    public DcMotor armslider;
+    public Servo claw1;
+    public ColorSensor colorSensor;    // Hardware Device Object
+    public DistanceSensor distanceSensor;
+    public int hangConstant;
+    HardwareMap hwMap;
+
+    public void runOpMode() {
+        init(hardwareMap);
+        waitForStart();
+        claw1.setPosition(1);
+        sleep(100);
+        armmotorLeft.setPower(0.5);
+        armmotorRight.setPower(0.5);
+        armmotorThird.setPower(0.5);
+        sleep(1400);
+    }
+
+
+    public void init(HardwareMap ahwMap) {
+
+        hwMap = ahwMap;
+        // Sensors
+        colorSensor = hwMap.get(ColorSensor.class, "sensor_color");
+        distanceSensor = hwMap.get(DistanceSensor.class, "sensor_color");
+
+        // Control Hub
+        topLeftDriveMotor = hwMap.get(DcMotor.class, "frontleft");
+        bottomLeftDriveMotor = hwMap.get(DcMotor.class, "backleft");
+        topRightDriveMotor = hwMap.get(DcMotor.class, "frontright");
+        bottomRightDriveMotor = hwMap.get(DcMotor.class, "backright");
+
+        // Expansion Hub
+        armmotorLeft = hwMap.dcMotor.get("amleft");
+        armmotorRight = hwMap.dcMotor.get("amright");
+        /* NEW ARM MOTORS
+                         |
+                         v                 */
+        armmotorThird = hwMap.dcMotor.get("amthird");
+        armslider = hwMap.dcMotor.get("amslider");
+        //wrist = hwMap.crservo.get("wrist");
+        claw1 = hwMap.servo.get("claw");
+        topLeftDriveMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        bottomLeftDriveMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        topRightDriveMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        bottomRightDriveMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
+
+        //THIS IS THE CORRECT ORIENTATION, 3 OF THE MOTORS ARE REVERSED FOR SOME GOD DAMN REASON
+        topLeftDriveMotor.setDirection(DcMotor.Direction.REVERSE);
+        topRightDriveMotor.setDirection(DcMotor.Direction.REVERSE);
+        bottomRightDriveMotor.setDirection(DcMotor.Direction.REVERSE);
+
+        topLeftDriveMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        topRightDriveMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        bottomLeftDriveMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        bottomRightDriveMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
+        armmotorLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        armmotorRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        armmotorThird.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        armslider.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
+
+
+    }
+
+}
