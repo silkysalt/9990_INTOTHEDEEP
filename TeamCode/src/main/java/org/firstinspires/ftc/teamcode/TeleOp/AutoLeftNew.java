@@ -84,7 +84,7 @@ public class AutoLeftNew extends LinearOpMode {
 
         // ARM SLIDER MOTOR
         armslider.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        armslider.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
 
 
 
@@ -165,8 +165,11 @@ public class AutoLeftNew extends LinearOpMode {
         armmotorLeft.setPower(0);
     }
     public void moveArmSlider(double power, int position) {
-        armslider.setPower(power);
+
         armslider.setTargetPosition(position);
+        armslider.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        armslider.setPower(power);
+        armslider.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
     }
 
 
