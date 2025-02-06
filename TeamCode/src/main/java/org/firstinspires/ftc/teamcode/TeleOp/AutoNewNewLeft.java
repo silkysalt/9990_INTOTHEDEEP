@@ -267,14 +267,29 @@ public class AutoNewNewLeft extends LinearOpMode {
         bottomLeftDriveMotor.setPower(power);
         bottomRightDriveMotor.setPower(-power);
     }
-    public void moveArm(double power, long time) {
-        armmotorRight.setPower(power);
-        armmotorThird.setPower(power);
+    public void moveArm(double power, int position) {
+//        armmotorRight.setPower(power);
+//        armmotorThird.setPower(power);
+//        armmotorLeft.setPower(power);
+//        sleep(time);
+//        armmotorRight.setPower(0);
+//        armmotorThird.setPower(0);
+//        armmotorLeft.setPower(0);
+        armmotorLeft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        armmotorRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        armmotorThird.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+        armmotorLeft.setTargetPosition(position);
+        armmotorRight.setTargetPosition(-position);
+        armmotorThird.setTargetPosition(position);
+
+        armmotorLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        armmotorRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        armmotorThird.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
         armmotorLeft.setPower(power);
-        sleep(time);
-        armmotorRight.setPower(0);
-        armmotorThird.setPower(0);
-        armmotorLeft.setPower(0);
+        armmotorRight.setPower(-power);
+        armmotorThird.setPower(power);
     }
     public void moveArmSlider(double power, int position) {
 
