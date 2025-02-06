@@ -42,7 +42,7 @@ public class Drivetrain extends LinearOpMode {
          * Hardware initialized and String Names are in the Configuration File for Hardware Map
          * **/
 
-        // Control HUb
+        // Control Hub
         topLeftDriveMotor = hwMap.get(DcMotor.class, "frontleft");
         bottomLeftDriveMotor = hwMap.get(DcMotor.class, "backleft");
         topRightDriveMotor = hwMap.get(DcMotor.class, "frontright");
