@@ -1,7 +1,5 @@
 package org.firstinspires.ftc.teamcode.TeleOp;
 
-import static org.firstinspires.ftc.teamcode.TeleOp.Drivetrain.armslider;
-import static org.firstinspires.ftc.teamcode.TeleOp.Drivetrain.claw1;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -18,8 +16,8 @@ public class TestDrive extends LinearOpMode {
             //telemetry.addData("rightodo", drivetrain.rightOdo.getCurrentPosition());
             //telemetry.addData("leftodo", drivetrain.leftOdo.getCurrentPosition());
             //telemetry.addData("midodo", drivetrain.midOdo.getCurrentPosition());
-            telemetry.addData("armsliderpos", armslider.getCurrentPosition());
-            telemetry.addData("servoarmpos", claw1.getPosition());
+            telemetry.addData("armsliderpos", drivetrain.armslider.getCurrentPosition());
+            telemetry.addData("servoarmpos", drivetrain.claw1.getPosition());
             telemetry.update();
 
 

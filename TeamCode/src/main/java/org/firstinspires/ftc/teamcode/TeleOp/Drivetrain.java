@@ -16,12 +16,12 @@ public class Drivetrain extends LinearOpMode {
     public DcMotor bottomLeftDriveMotor;
     public DcMotor topRightDriveMotor;
     public DcMotor bottomRightDriveMotor;
-    public static DcMotor armmotorLeft;
+    public DcMotor armmotorLeft;
     public DcMotor armmotorRight;
     public DcMotor armmotorThird;
-    public static DcMotor armslider;
+    public DcMotor armslider;
     //all unnecessary code from last year
-    public static Servo claw1; // GOD DAMN IT
+    public Servo claw1;
 
     public int hangConstant;
     HardwareMap hwMap;

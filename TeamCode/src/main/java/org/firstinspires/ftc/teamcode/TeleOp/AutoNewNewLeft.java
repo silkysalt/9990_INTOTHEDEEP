@@ -78,6 +78,13 @@ public class AutoNewNewLeft extends LinearOpMode {
 
 
         // ARM SLIDER MOTOR
+        topLeftDriveMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        topRightDriveMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        bottomLeftDriveMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        bottomRightDriveMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        armmotorLeft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        armmotorRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        armmotorThird.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         armslider.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         armslider.setDirection(DcMotor.Direction.REVERSE);
 
@@ -292,11 +299,10 @@ public class AutoNewNewLeft extends LinearOpMode {
         armmotorThird.setPower(power);
     }
     public void moveArmSlider(double power, int position) {
-
+        armslider.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         armslider.setTargetPosition(position);
         armslider.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         armslider.setPower(power);
-        armslider.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
     }
 
 
