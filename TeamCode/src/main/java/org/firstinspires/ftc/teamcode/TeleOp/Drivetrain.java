@@ -71,10 +71,11 @@ public class Drivetrain extends LinearOpMode {
 
 
         //THIS IS THE CORRECT ORIENTATION, 4 OF THE MOTORS ARE REVERSED FOR SOME REASON
-        topLeftDriveMotor.setDirection(DcMotor.Direction.REVERSE);
+        //topLeftDriveMotor.setDirection(DcMotor.Direction.REVERSE);
+        bottomLeftDriveMotor.setDirection(DcMotor.Direction.REVERSE);
         topRightDriveMotor.setDirection(DcMotor.Direction.REVERSE);
-        bottomRightDriveMotor.setDirection(DcMotor.Direction.REVERSE);
         armslider.setDirection(DcMotor.Direction.REVERSE);
+        //bottomRightDriveMotor.setDirection(DcMotor.Direction.REVERSE);
 
 
 

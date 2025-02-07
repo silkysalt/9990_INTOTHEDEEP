@@ -13,11 +13,14 @@ public class TestingOpMode extends LinearOpMode {
         drivetrain.init(hardwareMap);
         waitForStart();
         while (opModeIsActive()){
-            //no odometry because they keep changing our shit
+            //no odometry because i am dumb
             telemetry.addData("top left drive", drivetrain.topLeftDriveMotor.getCurrentPosition());
             telemetry.addData("top right drive", drivetrain.topRightDriveMotor.getCurrentPosition());
             telemetry.addData("bottom left drive", drivetrain.bottomLeftDriveMotor.getCurrentPosition());
             telemetry.addData("bottom right drive", drivetrain.bottomRightDriveMotor.getCurrentPosition());
+            telemetry.addData("arm motor left", drivetrain.armmotorLeft.getCurrentPosition());
+            telemetry.addData("arm motor right", drivetrain.armmotorRight.getCurrentPosition());
+            telemetry.addData("arm motor third", drivetrain.armmotorThird.getCurrentPosition());
             telemetry.addData("arm slider pos", drivetrain.armslider.getCurrentPosition());
             telemetry.addData("servo arm pos", drivetrain.claw1.getPosition());
             telemetry.update();

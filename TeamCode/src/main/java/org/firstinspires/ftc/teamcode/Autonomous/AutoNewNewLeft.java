@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.TeleOp;
+package org.firstinspires.ftc.teamcode.Autonomous;
 
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
@@ -31,6 +31,13 @@ public class AutoNewNewLeft extends LinearOpMode {
     public void runOpMode() {
         init(hardwareMap);
         waitForStart();
+        claw1.setPosition(1);
+        sleep(100);
+        moveForward(500,0.5);
+        sleep(1000);
+        turnLeft(500,0.5);
+        sleep(1000);
+        moveArm(0.5,2200);
     }
 
 
@@ -62,9 +69,11 @@ public class AutoNewNewLeft extends LinearOpMode {
         bottomRightDriveMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         //Correct Orientation
-        topLeftDriveMotor.setDirection(DcMotor.Direction.REVERSE);
+        //topLeftDriveMotor.setDirection(DcMotor.Direction.REVERSE);
+        bottomLeftDriveMotor.setDirection(DcMotor.Direction.REVERSE);
         topRightDriveMotor.setDirection(DcMotor.Direction.REVERSE);
-        bottomRightDriveMotor.setDirection(DcMotor.Direction.REVERSE);
+        armslider.setDirection(DcMotor.Direction.REVERSE);
+        //bottomRightDriveMotor.setDirection(DcMotor.Direction.REVERSE);
 
         topLeftDriveMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         topRightDriveMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
