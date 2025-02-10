@@ -114,7 +114,7 @@ public class Drivetrain extends LinearOpMode {
          * **/
         double y = -leftStickY * .85; // Remember, Y stick value is reversed
         double x = leftStickX * 1.1 * .85; // Counteract imperfect strafing
-        double rx = rightStickX * .425;
+        double rx = rightStickX * .4;
         double denominator = Math.max(Math.abs(y) + Math.abs(x) + Math.abs(rx), 1);
         double frontLeftPower = (y + x + rx) / denominator;
         double backLeftPower = (y - x + rx) / denominator;

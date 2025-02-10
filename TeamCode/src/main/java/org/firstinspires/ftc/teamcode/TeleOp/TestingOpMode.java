@@ -52,7 +52,7 @@ public class TestingOpMode extends LinearOpMode {
             double rsx = gamepad1.right_stick_x;
 
             if (gamepad1.left_trigger > 0){
-                drivetrain.moveRobot(.4* lsy, .4*  lsx, .4*  rsx);
+                drivetrain.moveRobot(.1* lsy, .1*  lsx, .1*  rsx);
                 drivetrain.armMovement(gamepad1, gamepad2,0.85);
             }
             else{

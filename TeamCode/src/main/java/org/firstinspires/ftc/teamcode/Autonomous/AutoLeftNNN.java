@@ -9,8 +9,8 @@ import com.qualcomm.robotcore.hardware.DistanceSensor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
-@Autonomous(name="New new Auto Left 2025", group="Robot")
-public class AutoNewNewLeft extends LinearOpMode {
+@Autonomous(name="NNN Auto Left 2025", group="Robot")
+public class AutoLeftNNN extends LinearOpMode {
 
     public ColorSensor colorSensor;    // Hardware Device Object
     public DistanceSensor distanceSensor;
@@ -24,7 +24,7 @@ public class AutoNewNewLeft extends LinearOpMode {
     public DcMotor armmotorThird;
     public DcMotor armslider;
     public Servo claw1;
-    public double c = 0.4;
+    public double c = 0.5;
     public int hangConstant;
     HardwareMap hwMap;
 
@@ -37,31 +37,33 @@ public class AutoNewNewLeft extends LinearOpMode {
         //moveForward(500,0.25);
         //turnLeft(1130,0.25);
         moveRight(300,.5);
-        moveArm(2200,0.5);
-        moveArmSlider(2050,1);
-        moveForward(850,0.25);
-        turnLeft(350,.5);
-        moveForward(175,.5);
+        moveArm(2100,0.5);
+        moveArmSlider(2200,1);
+        moveForward(900,0.25);
+        turnLeft(450,.5);
         claw1.setPosition(0.5);
-        sleep(1000);
+        sleep(250);
         moveBackward(450,0.25);
         moveArmSlider(-2050,1);
-        moveArm(-2000,0.5);
-        turnRight(1300,0.25);
-        moveForward(450,.5);
-        moveLeft(400,.35);
+        moveArm(-1800,0.5);
+        turnRight(1300,0.35);
+        sleep(250);
+        moveForward(150,.25);
+        sleep(250);
+        //moveLeft(250,.25);
         moveArmSlider(650,1);
-        moveArm(-50,0.5);
+        moveArm(-200,0.5);
         claw1.setPosition(1);
-        sleep(1000);
-        moveArm(2050,.5);
-        moveBackward(450,.5);
-        turnLeft(1600,.5);
-        moveArmSlider(1650,0.5);
-        moveForward(600,.5);
+        sleep(250);
+        moveArm(2000,.5);
+        moveBackward(450,.25);
+        sleep(250);
+        turnLeft(1500,.25);
+        moveArmSlider(1450,0.5);
+        moveForward(450,.25);
         claw1.setPosition(.5);
-        sleep(1000);
-        moveBackward(450,.5);
+        sleep(500);
+        moveBackward(450,.25);
         moveArmSlider(-2050,1);
         moveArm(-1800,0.5);
         turnRight(1500,0.25);
@@ -352,20 +354,16 @@ public class AutoNewNewLeft extends LinearOpMode {
         armmotorLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         armmotorRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         armmotorThird.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-
-        while(armmotorLeft.isBusy()){
-            armmotorLeft.setPower(power);
-            armmotorRight.setPower(power);
-            armmotorThird.setPower(power);
-        }
+        armmotorLeft.setPower(power);
+        armmotorRight.setPower(power);
+        armmotorThird.setPower(power);
     }
     public void moveArmSlider(int position, double power) {
         armslider.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         armslider.setTargetPosition(position);
         armslider.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        while(armslider.isBusy()){
-            armslider.setPower(power);
-        }
+        armslider.setPower(power);
+
 
     }
 
