@@ -112,9 +112,9 @@ public class Drivetrain extends LinearOpMode {
          * Wheel powers calculated using gamepad 1's inputs leftStickY, leftStickX, and rightStickX
          * hfhghjksfdhjksdfjhlsfdhjlfdshjadfhjashsaj AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA FRIIICK  we reused this shit and it intentionally has shitty strafing because F mecanum wheels
          * **/
-        double y = -leftStickY * .85; // Remember, Y stick value is reversed
-        double x = leftStickX * 1.1 * .85; // Counteract imperfect strafing
-        double rx = rightStickX * .4;
+        double y = -leftStickY * 1; // Remember, Y stick value is reversed
+        double x = leftStickX * 1.1 * 1; // Counteract imperfect strafing
+        double rx = rightStickX * .6;
         double denominator = Math.max(Math.abs(y) + Math.abs(x) + Math.abs(rx), 1);
         double frontLeftPower = (y + x + rx) / denominator;
         double backLeftPower = (y - x + rx) / denominator;
@@ -190,7 +190,7 @@ public class Drivetrain extends LinearOpMode {
             claw1.setPosition(1);
         }
         if (gamepad2.a) {
-            claw1.setPosition(0.5);
+            claw1.setPosition(0.75);
         }
         if (gamepad2.back) { // WAS*** NOT GAMEPAD 2
             hangConstant = 1;

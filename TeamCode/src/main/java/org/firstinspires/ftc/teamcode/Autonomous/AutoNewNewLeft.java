@@ -24,7 +24,7 @@ public class AutoNewNewLeft extends LinearOpMode {
     public DcMotor armmotorThird;
     public DcMotor armslider;
     public Servo claw1;
-    public double c = 0.4;
+    public double c = 0.5;
     public int hangConstant;
     HardwareMap hwMap;
 
@@ -42,7 +42,7 @@ public class AutoNewNewLeft extends LinearOpMode {
         moveForward(850,0.25);
         turnLeft(350,.5);
         moveForward(175,.5);
-        claw1.setPosition(0.5);
+        claw1.setPosition(0.75);
         sleep(1000);
         moveBackward(450,0.25);
         moveArmSlider(-2050,1);
@@ -56,10 +56,10 @@ public class AutoNewNewLeft extends LinearOpMode {
         sleep(1000);
         moveArm(2050,.5);
         moveBackward(450,.5);
-        turnLeft(1600,.5);
+        turnLeft(1200,.5);
         moveArmSlider(1650,0.5);
         moveForward(600,.5);
-        claw1.setPosition(.5);
+        claw1.setPosition(.75);
         sleep(1000);
         moveBackward(450,.5);
         moveArmSlider(-2050,1);

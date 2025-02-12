@@ -33,15 +33,14 @@ public class AutoLeftNNN extends LinearOpMode {
         waitForStart();
         claw1.setPosition(1);
         sleep(100);
-
+        moveArm(2100,0.5);
+        moveArmSlider(2200,1);
         //moveForward(500,0.25);
         //turnLeft(1130,0.25);
         moveRight(300,.5);
-        moveArm(2100,0.5);
-        moveArmSlider(2200,1);
         moveForward(900,0.25);
         turnLeft(450,.5);
-        claw1.setPosition(0.5);
+        claw1.setPosition(0.75);
         sleep(250);
         moveBackward(450,0.25);
         moveArmSlider(-2050,1);
@@ -61,7 +60,7 @@ public class AutoLeftNNN extends LinearOpMode {
         turnLeft(1500,.25);
         moveArmSlider(1450,0.5);
         moveForward(450,.25);
-        claw1.setPosition(.5);
+        claw1.setPosition(.75);
         sleep(500);
         moveBackward(450,.25);
         moveArmSlider(-2050,1);
@@ -354,15 +353,20 @@ public class AutoLeftNNN extends LinearOpMode {
         armmotorLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         armmotorRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         armmotorThird.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        armmotorLeft.setPower(power);
-        armmotorRight.setPower(power);
-        armmotorThird.setPower(power);
+        while (armmotorLeft.isBusy()) {
+            armmotorLeft.setPower(power);
+            armmotorRight.setPower(power);
+            armmotorThird.setPower(power);
+        }
+
     }
     public void moveArmSlider(int position, double power) {
         armslider.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         armslider.setTargetPosition(position);
         armslider.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        armslider.setPower(power);
+        while (armslider.isBusy()) {
+            armslider.setPower(power);
+        }
 
 
     }
