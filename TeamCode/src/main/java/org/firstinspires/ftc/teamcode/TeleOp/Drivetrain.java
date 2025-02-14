@@ -72,7 +72,7 @@ public class Drivetrain extends LinearOpMode {
 
         //THIS IS THE CORRECT ORIENTATION, 4 OF THE MOTORS ARE REVERSED FOR SOME REASON
         //topLeftDriveMotor.setDirection(DcMotor.Direction.REVERSE);
-        bottomLeftDriveMotor.setDirection(DcMotor.Direction.REVERSE);
+        topLeftDriveMotor.setDirection(DcMotor.Direction.REVERSE);
         topRightDriveMotor.setDirection(DcMotor.Direction.REVERSE);
         armslider.setDirection(DcMotor.Direction.REVERSE);
         //bottomRightDriveMotor.setDirection(DcMotor.Direction.REVERSE);
@@ -112,6 +112,7 @@ public class Drivetrain extends LinearOpMode {
          * Wheel powers calculated using gamepad 1's inputs leftStickY, leftStickX, and rightStickX
          * hfhghjksfdhjksdfjhlsfdhjlfdshjadfhjashsaj AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA FRIIICK  we reused this shit and it intentionally has shitty strafing because F mecanum wheels
          * **/
+        double c = .5;
         double y = -leftStickY * 1; // Remember, Y stick value is reversed
         double x = leftStickX * 1.1 * 1; // Counteract imperfect strafing
         double rx = rightStickX * .6;
@@ -123,7 +124,7 @@ public class Drivetrain extends LinearOpMode {
         topLeftDriveMotor.setPower(frontLeftPower);
         bottomLeftDriveMotor.setPower(backLeftPower);
         topRightDriveMotor.setPower(frontRightPower);
-        bottomRightDriveMotor.setPower(backRightPower);
+        bottomRightDriveMotor.setPower(backRightPower*c);
     }
 
     public void armMovement(Gamepad gamepad1, Gamepad gamepad2, double baskets) throws InterruptedException {
@@ -190,7 +191,7 @@ public class Drivetrain extends LinearOpMode {
             claw1.setPosition(1);
         }
         if (gamepad2.a) {
-            claw1.setPosition(0.75);
+            claw1.setPosition(0.5);
         }
         if (gamepad2.back) { // WAS*** NOT GAMEPAD 2
             hangConstant = 1;

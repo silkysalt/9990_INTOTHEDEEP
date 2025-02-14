@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.Autonomous;
 
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -10,6 +11,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
 @Autonomous(name="NNN Auto Left 2025", group="Robot")
+@Disabled
 public class AutoLeftNNN extends LinearOpMode {
 
     public ColorSensor colorSensor;    // Hardware Device Object
@@ -38,9 +40,9 @@ public class AutoLeftNNN extends LinearOpMode {
         //moveForward(500,0.25);
         //turnLeft(1130,0.25);
         moveRight(300,.5);
-        moveForward(900,0.25);
+        moveForward(1200,0.25);
         turnLeft(450,.5);
-        claw1.setPosition(0.75);
+        claw1.setPosition(0.5);
         sleep(250);
         moveBackward(450,0.25);
         moveArmSlider(-2050,1);
@@ -49,9 +51,10 @@ public class AutoLeftNNN extends LinearOpMode {
         sleep(250);
         moveForward(150,.25);
         sleep(250);
-        //moveLeft(250,.25);
+        moveLeft(250,.35);
         moveArmSlider(650,1);
         moveArm(-200,0.5);
+        sleep(1000);
         claw1.setPosition(1);
         sleep(250);
         moveArm(2000,.5);
@@ -60,7 +63,8 @@ public class AutoLeftNNN extends LinearOpMode {
         turnLeft(1500,.25);
         moveArmSlider(1450,0.5);
         moveForward(450,.25);
-        claw1.setPosition(.75);
+        sleep(1000);
+        claw1.setPosition(.5);
         sleep(500);
         moveBackward(450,.25);
         moveArmSlider(-2050,1);
@@ -109,7 +113,7 @@ public class AutoLeftNNN extends LinearOpMode {
 
         //Correct Orientation
         //topLeftDriveMotor.setDirection(DcMotor.Direction.REVERSE);
-        bottomLeftDriveMotor.setDirection(DcMotor.Direction.REVERSE);
+        topLeftDriveMotor.setDirection(DcMotor.Direction.REVERSE);
         topRightDriveMotor.setDirection(DcMotor.Direction.REVERSE);
         armslider.setDirection(DcMotor.Direction.REVERSE);
         //bottomRightDriveMotor.setDirection(DcMotor.Direction.REVERSE);
@@ -167,7 +171,7 @@ public class AutoLeftNNN extends LinearOpMode {
             topLeftDriveMotor.setPower(power);
             topRightDriveMotor.setPower(power);
             bottomLeftDriveMotor.setPower(power);
-            bottomRightDriveMotor.setPower(power);
+            bottomRightDriveMotor.setPower(power*c);
         }
 
 
@@ -203,7 +207,7 @@ public class AutoLeftNNN extends LinearOpMode {
             topLeftDriveMotor.setPower(power);
             topRightDriveMotor.setPower(power);
             bottomLeftDriveMotor.setPower(power);
-            bottomRightDriveMotor.setPower(power);
+            bottomRightDriveMotor.setPower(power*c);
         }
     }
     public void moveRight(int position, double power) {
@@ -235,7 +239,7 @@ public class AutoLeftNNN extends LinearOpMode {
             topLeftDriveMotor.setPower(power);
             topRightDriveMotor.setPower(power);
             bottomLeftDriveMotor.setPower(power);
-            bottomRightDriveMotor.setPower(power);
+            bottomRightDriveMotor.setPower(power*c);
         }
     }
     public void moveBackward(int position, double power) {
@@ -267,7 +271,7 @@ public class AutoLeftNNN extends LinearOpMode {
             topLeftDriveMotor.setPower(power);
             topRightDriveMotor.setPower(power);
             bottomLeftDriveMotor.setPower(power);
-            bottomRightDriveMotor.setPower(power);
+            bottomRightDriveMotor.setPower(power*c);
         }
     }
     public void turnLeft(int position, double power) {
@@ -299,7 +303,7 @@ public class AutoLeftNNN extends LinearOpMode {
             topLeftDriveMotor.setPower(power);
             topRightDriveMotor.setPower(power);
             bottomLeftDriveMotor.setPower(power);
-            bottomRightDriveMotor.setPower(power);
+            bottomRightDriveMotor.setPower(power*c);
         }
     }
     public void turnRight(int position, double power) {
@@ -331,7 +335,7 @@ public class AutoLeftNNN extends LinearOpMode {
             topLeftDriveMotor.setPower(power);
             topRightDriveMotor.setPower(power);
             bottomLeftDriveMotor.setPower(power);
-            bottomRightDriveMotor.setPower(power);
+            bottomRightDriveMotor.setPower(power*c);
         }
     }
     public void moveArm(int position, double power) {
@@ -353,20 +357,20 @@ public class AutoLeftNNN extends LinearOpMode {
         armmotorLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         armmotorRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
         armmotorThird.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        while (armmotorLeft.isBusy()) {
+        //while (armmotorLeft.isBusy()) {
             armmotorLeft.setPower(power);
             armmotorRight.setPower(power);
             armmotorThird.setPower(power);
-        }
+        //}
 
     }
     public void moveArmSlider(int position, double power) {
         armslider.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         armslider.setTargetPosition(position);
         armslider.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        while (armslider.isBusy()) {
+        //while (armslider.isBusy()) {
             armslider.setPower(power);
-        }
+        //}
 
 
     }

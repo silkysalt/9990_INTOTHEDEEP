@@ -9,8 +9,8 @@ import com.qualcomm.robotcore.hardware.DistanceSensor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
-@Autonomous(name="New new Auto Left 2025", group="Robot")
-public class AutoNewNewLeft extends LinearOpMode {
+@Autonomous(name="Auto Encoder Right 2025", group="Robot")
+public class AutoRightEncoder extends LinearOpMode {
 
     public ColorSensor colorSensor;    // Hardware Device Object
     public DistanceSensor distanceSensor;
@@ -24,7 +24,8 @@ public class AutoNewNewLeft extends LinearOpMode {
     public DcMotor armmotorThird;
     public DcMotor armslider;
     public Servo claw1;
-    public double c = 0.5;
+    // do i need to set up certain powers for the thing?
+    public double c = 0.47906976744;
     public int hangConstant;
     HardwareMap hwMap;
 
@@ -33,49 +34,36 @@ public class AutoNewNewLeft extends LinearOpMode {
         waitForStart();
         claw1.setPosition(1);
         sleep(100);
-
-        //moveForward(500,0.25);
-        //turnLeft(1130,0.25);
-        moveRight(300,.5);
-        moveArm(2200,0.5);
-        moveArmSlider(2050,1);
-        moveForward(850,0.25);
-        turnLeft(350,.5);
-        moveForward(175,.5);
+        moveArm(1600,0.5);
+        moveArmSlider(1000,1);
+        moveForward(900,0.25);
+        moveArmSlider(300,1);
         claw1.setPosition(0.5);
-        sleep(1000);
-        moveBackward(450,0.25);
-        moveArmSlider(-2050,1);
-        moveArm(-2000,0.5);
-        turnRight(1300,0.25);
-        moveForward(450,.5);
-        moveLeft(400,.35);
-        moveArmSlider(650,1);
-        moveArm(-50,0.5);
-        claw1.setPosition(1);
-        sleep(1000);
-        moveArm(2050,.5);
-        moveBackward(450,.5);
-        turnLeft(1600,.5);
-        moveArmSlider(1450,0.5);
-        moveForward(600,.5);
-        claw1.setPosition(.5);
-        sleep(1000);
-        moveBackward(450,.5);
-        moveArmSlider(-2050,1);
-        moveArm(-1800,0.5);
-        turnRight(1500,0.25);
+        armmotorLeft.setPower(0.5);
+        armmotorRight.setPower(0.5);
+        armmotorThird.setPower(0.5);
+        sleep(1150);
+        armmotorLeft.setPower(0);
+        armmotorRight.setPower(0);
+        armmotorThird.setPower(0);
+        armslider.setPower(-0.8);
+        sleep(600);
+        topLeftDriveMotor.setPower(0.4);
+        bottomLeftDriveMotor.setPower(0.4);
+        topRightDriveMotor.setPower(0.4);
+        bottomRightDriveMotor.setPower(0.4);
+        armslider.setPower(0);
+        sleep(1200);
+        topLeftDriveMotor.setPower(0);
+        bottomLeftDriveMotor.setPower(0);
+        topRightDriveMotor.setPower(0);
+        bottomRightDriveMotor.setPower(0);
+        sleep(0);
+        topLeftDriveMotor.setPower(0);
+        bottomLeftDriveMotor.setPower(0);
+        topRightDriveMotor.setPower(0);
+        bottomRightDriveMotor.setPower(0);
 
-
-
-
-
-//        moveForward(200,0.25);
-//        turnLeft(600,0.25); // 90 Degree turn
-//        moveForward(400,0.25);
-//        turnLeft(400,0.25);
-
-//        turnRight(900,0.25);
     }
 
 
@@ -166,7 +154,7 @@ public class AutoNewNewLeft extends LinearOpMode {
             topLeftDriveMotor.setPower(power);
             topRightDriveMotor.setPower(power);
             bottomLeftDriveMotor.setPower(power);
-            bottomRightDriveMotor.setPower(power*c);
+            bottomRightDriveMotor.setPower(power);
         }
 
 
@@ -202,7 +190,7 @@ public class AutoNewNewLeft extends LinearOpMode {
             topLeftDriveMotor.setPower(power);
             topRightDriveMotor.setPower(power);
             bottomLeftDriveMotor.setPower(power);
-            bottomRightDriveMotor.setPower(power*c);
+            bottomRightDriveMotor.setPower(power);
         }
     }
     public void moveRight(int position, double power) {
@@ -234,7 +222,7 @@ public class AutoNewNewLeft extends LinearOpMode {
             topLeftDriveMotor.setPower(power);
             topRightDriveMotor.setPower(power);
             bottomLeftDriveMotor.setPower(power);
-            bottomRightDriveMotor.setPower(power*c);
+            bottomRightDriveMotor.setPower(power);
         }
     }
     public void moveBackward(int position, double power) {
@@ -266,7 +254,7 @@ public class AutoNewNewLeft extends LinearOpMode {
             topLeftDriveMotor.setPower(power);
             topRightDriveMotor.setPower(power);
             bottomLeftDriveMotor.setPower(power);
-            bottomRightDriveMotor.setPower(power*c);
+            bottomRightDriveMotor.setPower(power);
         }
     }
     public void turnLeft(int position, double power) {
@@ -298,7 +286,7 @@ public class AutoNewNewLeft extends LinearOpMode {
             topLeftDriveMotor.setPower(power);
             topRightDriveMotor.setPower(power);
             bottomLeftDriveMotor.setPower(power);
-            bottomRightDriveMotor.setPower(power*c);
+            bottomRightDriveMotor.setPower(power);
         }
     }
     public void turnRight(int position, double power) {
@@ -330,7 +318,7 @@ public class AutoNewNewLeft extends LinearOpMode {
             topLeftDriveMotor.setPower(power);
             topRightDriveMotor.setPower(power);
             bottomLeftDriveMotor.setPower(power);
-            bottomRightDriveMotor.setPower(power*c);
+            bottomRightDriveMotor.setPower(power);
         }
     }
     public void moveArm(int position, double power) {
