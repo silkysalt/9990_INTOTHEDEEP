@@ -30,8 +30,8 @@ public class AutoTest extends LinearOpMode {
         waitForStart();
         claw1.setPosition(1);
         sleep(100);
-        moveRight(300,.5);
         moveArm(2200,0.5);
+        moveRight(300,.5);
         moveArmSlider(2100,1);
         moveForward(850,0.25);
         turnLeft(400,.5);
@@ -82,10 +82,6 @@ public class AutoTest extends LinearOpMode {
         armslider = hwMap.dcMotor.get("amslider");
         //wrist = hwMap.crservo.get("wrist");
         claw1 = hwMap.servo.get("claw");
-        topLeftDriveMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        bottomLeftDriveMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        topRightDriveMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        bottomRightDriveMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         //Correct Orientation
         //topLeftDriveMotor.setDirection(DcMotor.Direction.REVERSE);
