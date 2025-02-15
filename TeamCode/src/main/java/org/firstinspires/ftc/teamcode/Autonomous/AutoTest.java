@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
-@Autonomous(name="DO NOT UPDATE DURING COMP Auto Test 2025", group="Robot")
+@Autonomous(name="DO NOT RUN DURING COMP Auto Test 2025", group="Robot")
 public class AutoTest extends LinearOpMode {
 
 

@@ -35,9 +35,20 @@ public class AutoRightEncoder extends LinearOpMode {
         moveForward(900,0.25);
         moveArmSlider(300,1);
         claw1.setPosition(0.5);
-        moveBackward(600,0.25);
-        moveRight(2000,0.25);
-        moveBackward(400,0.25);
+        moveBackward(300,0.25);
+        moveArmSlider(-1300, 1);
+        turnRight(1050, .5);
+        moveArm(-700,-.5);
+        moveForward(700,.5);
+        sleep(1000);
+        moveArmSlider(1000,1);
+        moveArm(-500,-.5);
+        claw1.setPosition(1);
+        sleep(200);
+        moveBackward(600,.5);
+        turnLeft(1200,.3);
+    //    moveRight(2000,0.25);
+      //  moveBackward(400,0.25);
     }
 
 
