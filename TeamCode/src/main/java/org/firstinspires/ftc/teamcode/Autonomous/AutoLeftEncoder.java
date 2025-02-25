@@ -32,26 +32,26 @@ public class AutoLeftEncoder extends LinearOpMode {
         sleep(100);
         moveRight(300,.5);
         moveArm(2200,0.5);
-        moveArmSlider(2100,1);
+        moveArmSlider(2150,1);
         moveForward(850,0.25);
         turnLeft(400,.5);
        // moveForward(150,.5); This is not necessary
         claw1.setPosition(0.5);
         sleep(1000);
         moveBackward(450,0.25);
-        moveArmSlider(-2100,1);
+        moveArmSlider(-2150,1);
         moveArm(-2000,0.5);
         turnRight(1300,0.25); // messed up here
         moveForward(425,.5);
-        moveLeft(200,.35);
-        moveArmSlider(550,1);
+        moveLeft(250,.35);
+        moveArmSlider(750,1);
         moveArm(-50,0.5);
         claw1.setPosition(1);
         sleep(1000);
         moveArm(2050,.5);
         moveBackward(200,.5);
         moveArmSlider(1450,0.5);
-        turnLeft(1425,.5);
+        turnLeft(1500,.5);
         moveForward(400,.25);
         claw1.setPosition(.5);
         sleep(1000);
